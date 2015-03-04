@@ -53,6 +53,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Viruses\ActiveVirus.cs" />
+    <Compile Include="Viruses\Traits\Condition.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Viruses\Traits\Progression.cs" />
+    <Compile Include="Viruses\Traits\Resiliency.cs" />
+    <Compile Include="Viruses\Traits\TransmissionMethod.cs" />
+    <Compile Include="Viruses\Virus.cs" />
     <Page Include="EntryScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +76,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Host.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
