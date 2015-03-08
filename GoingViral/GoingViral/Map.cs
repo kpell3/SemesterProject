@@ -21,7 +21,7 @@ namespace GoingViral
             //Initialize the map
             for (int x = 0; x < 10; ++x)
             {
-                theMap.Add(new Location("TestLocation" + x.ToString()));
+                theMap.Add(new Location("TestLocation" + x.ToString(), 100000.0));
                 for (int y = 0; y < 10; ++y)
                 {
                     theMap[x].LocationsAdjacentByLand.Add("TestLocation" + y);
@@ -34,9 +34,20 @@ namespace GoingViral
         public void TakeOneTurn()
         {
             //Execute anything that needs to happen world wide
+            List<string> InfectionsToTrigger = new List<string>();
             foreach (Location loc in theMap)
             {
-                loc.TakeOneTurn();
+                InfectionsToTrigger.AddRange( loc.TakeOneTurn() );
+            }
+            foreach (string loc1 in InfectionsToTrigger)
+            {
+                foreach (Location loc2 in theMap)
+                {
+                    if (loc2.Name.Equals(loc1, StringComparison.Ordinal))
+                    {
+                        loc2.InfectNewHost();
+                    }
+                }
             }
         }
         /// <summary>

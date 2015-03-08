@@ -56,17 +56,8 @@ namespace GoingViral
         /// </summary>
         public double SymptomOnset_Days
         {
-            get;
-            set;
-        }
-        /// <summary>
-        /// Represents how long before a host will get over this virus on
-        /// their own.
-        /// </summary>
-        public Progression VirusProgression
-        {
-            get;
-            set;
+            public get;
+            private set;
         }
         /// <summary>
         /// Represents the day after the initial infection after which a host
@@ -74,8 +65,8 @@ namespace GoingViral
         /// </summary>
         public double StartOfInfectiousness_Day
         {
-            get;
-            set;
+            public get;
+            private set;
         }
         /// <summary>
         /// Represents how long the host is infectious for. This number is
@@ -83,8 +74,8 @@ namespace GoingViral
         /// </summary>
         public double InfectiousTime_Days
         {
-            get;
-            set;
+            public get;
+            public set;
         }
         /// <summary>
         /// Represents how long the virus can survive outside the body.
@@ -92,18 +83,38 @@ namespace GoingViral
         /// </summary>
         public Resiliency VirusResiliency
         {
-            get;
-            set;
+            public get;
+            public set;
         }
         /// <summary>
         /// The amount of time it takes this virus, on average, to kill
         /// a host. Each host has a percent chance of dieing when they get
         /// close to this time if they are still infected.
+        /// Note: This time starts AFTER onset of symptoms
         /// </summary>
         public double TimeToKill
         {
-            get;
-            set;
+            public get;
+            private set;
+        }
+        /// <summary>
+        /// This is how long it will take to recover from this virus
+        /// This is measured from the beginning of infection, since it is
+        /// possible that one could recover from a virus before showing
+        /// symptoms.
+        /// </summary>
+        public double TimeToRecover
+        {
+            public get;
+            private set;
+        }
+        /// <summary>
+        /// This is a multiplier representing how infectious this virus is.
+        /// </summary>
+        public double Infectiousness
+        {
+            public get;
+            private set;
         }
     }
 }

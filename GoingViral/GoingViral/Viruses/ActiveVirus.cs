@@ -39,6 +39,15 @@ namespace GoingViral
             }
         }
         /// <summary>
+        /// Represents how long before a host will get over this virus on
+        /// their own.
+        /// </summary>
+        public Progression VirusProgression
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// Will lock down the list of conditions, finalize the virus, and put
         /// it into the wild.
         /// </summary>

@@ -12,27 +12,60 @@ namespace GoingViral
     /// </summary>
     class Location
     {
-        public Location( string name )
+        public Location( string name, double pop )
         {
             Name = name;
+            Population = pop;
         }
         /// <summary>
         /// Will take one turn at this location.
         /// </summary>
-        public void TakeOneTurn()
+        public List<string> TakeOneTurn()
         {
             //Run through the InfectedHosts list.
+            List<string> InfectionsToTrigger = new List<string>();
             foreach (Host thisHost in InfectedHosts)
             {
-                thisHost.Infect();
+                //A virus can always spread locally.
+                List<string> InfectableLocations = new List<string>();
+                InfectableLocations.Add(Name);
+                //A virus can always spread by land if the area isn't under quarentine.
+                if (!IsUnderQuarentine)
+                {
+                    InfectableLocations.AddRange(LocationsAdjacentByLand);
+                }
+                //A virus can only spread by sea if carried in the air or in the water.
+                if (thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Waterbourne
+                    || thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne)
+                {
+                    InfectableLocations.AddRange(LocationsAdjacentBySea);
+                }
+                //A virus can only spread by plane if carried in the air. Airlines use bottled water.
+                if (thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne)
+                {
+                    InfectableLocations.AddRange(LocationsAdjacentByAir);
+                }
+                InfectionsToTrigger.AddRange( thisHost.Infect(InfectableLocations)) ;
+                thisHost.Progress();
             }
+            return InfectionsToTrigger;
             //Determine if the Water/Air got infected.
             //Determine if the area has been quarentined
         }
         /// <summary>
+        /// This will create a newly infected host in this region, and progress the 
+        /// </summary>
+        public void InfectNewHost()
+        {
+        }
+        /// <summary>
         /// The name of the location to be displayed on the map
         /// </summary>
-        public string Name;
+        public string Name
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Locations that you can walk or drive to from this location
@@ -68,5 +101,10 @@ namespace GoingViral
         /// Whether or not the air in this area has been infected
         /// </summary>
         public bool AirInfected = false;
+
+        /// <summary>
+        /// This is the base population of this area
+        /// </summary>
+        public double Population;
     }
 }
