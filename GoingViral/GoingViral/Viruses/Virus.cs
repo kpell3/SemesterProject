@@ -56,7 +56,7 @@ namespace GoingViral
         /// </summary>
         public double SymptomOnset_Days
         {
-            public get;
+            get;
             private set;
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace GoingViral
         /// </summary>
         public double StartOfInfectiousness_Day
         {
-            public get;
+            get;
             private set;
         }
         /// <summary>
@@ -74,8 +74,8 @@ namespace GoingViral
         /// </summary>
         public double InfectiousTime_Days
         {
-            public get;
-            public set;
+            get;
+            set;
         }
         /// <summary>
         /// Represents how long the virus can survive outside the body.
@@ -83,8 +83,8 @@ namespace GoingViral
         /// </summary>
         public Resiliency VirusResiliency
         {
-            public get;
-            public set;
+            get;
+            set;
         }
         /// <summary>
         /// The amount of time it takes this virus, on average, to kill
@@ -94,7 +94,7 @@ namespace GoingViral
         /// </summary>
         public double TimeToKill
         {
-            public get;
+            get;
             private set;
         }
         /// <summary>
@@ -105,7 +105,7 @@ namespace GoingViral
         /// </summary>
         public double TimeToRecover
         {
-            public get;
+            get;
             private set;
         }
         /// <summary>
@@ -113,7 +113,7 @@ namespace GoingViral
         /// </summary>
         public double Infectiousness
         {
-            public get;
+            get;
             private set;
         }
     }

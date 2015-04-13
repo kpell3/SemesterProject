@@ -71,7 +71,7 @@ namespace GoingViral
         /// </summary>
         public Virus InfectedBy
         {
-            public get;
+            get;
             private set;
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace GoingViral
         /// </summary>
         public double NumberOfPeopleRepresentedByThisHost
         {
-            public get;
+            get;
             private set;
         }
         private Random Rand = new Random();
