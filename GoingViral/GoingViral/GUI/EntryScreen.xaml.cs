@@ -28,31 +28,31 @@ namespace GoingViral.GUI
 			cn.Visibility = Visibility.Hidden;
 		}
 
-		private void Grid_Loaded_1(object sender, RoutedEventArgs e)
+		private void Grid_Loaded_1( object sender, RoutedEventArgs e )
 		{
-			var fadeInAnimation = new DoubleAnimation(1d, TimeSpan.FromSeconds(5));
+			var fadeInAnimation = new DoubleAnimation( 1d, TimeSpan.FromSeconds( 5 ) );
 
 			if( image.Source != null )
 			{
-				var fadeOutAnimation = new DoubleAnimation(0d, TimeSpan.FromSeconds(5));
+				var fadeOutAnimation = new DoubleAnimation( 0d, TimeSpan.FromSeconds( 5 ) );
 				fadeOutAnimation.Completed += fadeOutAnimation_Completed;
 				//fadeOutAnimation.Completed += (o, e) =>
 				{
 					//image.Source = source;
-					image.BeginAnimation(Image.OpacityProperty, fadeInAnimation);
+					image.BeginAnimation( Image.OpacityProperty, fadeInAnimation );
 				};
 
-				image.BeginAnimation(Image.OpacityProperty, fadeOutAnimation);
+				image.BeginAnimation( Image.OpacityProperty, fadeOutAnimation );
 			}
 			else
 			{
 				image.Opacity = 0d;
 				//image.Source = source;
-				image.BeginAnimation(Image.OpacityProperty, fadeInAnimation);
+				image.BeginAnimation( Image.OpacityProperty, fadeInAnimation );
 			}
 		}
 
-		void fadeOutAnimation_Completed(object sender, EventArgs e)
+		void fadeOutAnimation_Completed( object sender, EventArgs e )
 		{
 			background.Visibility = Visibility.Visible;
 			background.Height = this.Height;
@@ -63,17 +63,17 @@ namespace GoingViral.GUI
 			cn.Visibility = Visibility.Visible;
 		}
 
-		private void NewSandboxGame_Click(object sender, RoutedEventArgs e)
+		private void NewSandboxGame_Click( object sender, RoutedEventArgs e )
+		{
+			GUI theGUI = new GUI( GameMode.SandboxMode );
+		}
+
+		private void NewRegularGame_Click( object sender, RoutedEventArgs e )
 		{
 
 		}
 
-		private void NewRegularGame_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void opt_Click(object sender, RoutedEventArgs e)
+		private void opt_Click( object sender, RoutedEventArgs e )
 		{
 
 		}

@@ -21,10 +21,10 @@ namespace GoingViral
 			//Initialize the map
 			for( int x = 0; x < 10; ++x )
 			{
-				theMap.Add(new Location("TestLocation" + x.ToString(), 100000.0));
+				theMap.Add( new Location( "TestLocation" + x.ToString(), 100000.0 ) );
 				for( int y = 0; y < 10; ++y )
 				{
-					theMap[x].LocationsAdjacentByLand.Add("TestLocation" + y);
+					theMap[x].LocationsAdjacentByLand.Add( "TestLocation" + y );
 				}
 			}
 		}
@@ -37,13 +37,13 @@ namespace GoingViral
 			List<string> InfectionsToTrigger = new List<string>();
 			foreach( Location loc in theMap )
 			{
-				InfectionsToTrigger.AddRange(loc.TakeOneTurn());
+				InfectionsToTrigger.AddRange( loc.TakeOneTurn() );
 			}
 			foreach( string loc1 in InfectionsToTrigger )
 			{
 				foreach( Location loc2 in theMap )
 				{
-					if( loc2.Name.Equals(loc1, StringComparison.Ordinal) )
+					if( loc2.Name.Equals( loc1, StringComparison.Ordinal ) )
 					{
 						loc2.InfectNewHost();
 					}

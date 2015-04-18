@@ -12,7 +12,7 @@ namespace GoingViral
 	/// </summary>
 	public class Location
 	{
-		public Location(string name, double pop)
+		public Location( string name, double pop )
 		{
 			Name = name;
 			Population = pop;
@@ -28,24 +28,24 @@ namespace GoingViral
 			{
 				//A virus can always spread locally.
 				List<string> InfectableLocations = new List<string>();
-				InfectableLocations.Add(Name);
+				InfectableLocations.Add( Name );
 				//A virus can always spread by land if the area isn't under quarentine.
 				if( !IsUnderQuarentine )
 				{
-					InfectableLocations.AddRange(LocationsAdjacentByLand);
+					InfectableLocations.AddRange( LocationsAdjacentByLand );
 				}
 				//A virus can only spread by sea if carried in the air or in the water.
 				if( thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Waterbourne
 					|| thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne )
 				{
-					InfectableLocations.AddRange(LocationsAdjacentBySea);
+					InfectableLocations.AddRange( LocationsAdjacentBySea );
 				}
 				//A virus can only spread by plane if carried in the air. Airlines use bottled water.
 				if( thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne )
 				{
-					InfectableLocations.AddRange(LocationsAdjacentByAir);
+					InfectableLocations.AddRange( LocationsAdjacentByAir );
 				}
-				InfectionsToTrigger.AddRange(thisHost.Infect(InfectableLocations));
+				InfectionsToTrigger.AddRange( thisHost.Infect( InfectableLocations ) );
 				thisHost.Progress();
 			}
 			return InfectionsToTrigger;

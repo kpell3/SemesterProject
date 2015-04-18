@@ -13,7 +13,7 @@ namespace GoingViral.GUI
 	/// </summary>
 	public class GUI
 	{
-		public GUI(GameMode mode)
+		public GUI( GameMode mode )
 		{
 			mGameMode = mode;
 			if( mGameMode == GameMode.RegularMode )
