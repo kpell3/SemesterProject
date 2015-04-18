@@ -9,7 +9,7 @@ namespace GoingViral
     /// <summary>
     /// Represents how long a virus can survive outside the host's body
     /// </summary>
-    enum Resiliency
+    public enum Resiliency
     {
         /// <summary>
         /// The virus dies instantly

@@ -10,7 +10,7 @@ namespace GoingViral
     /// This is an enum representing the Status of a host.
     /// A host can be either Uninfected, Dead, or Still Infected
     /// </summary>
-    enum Status
+    public enum Status
     {
         /// <summary>
         /// The host is not infected. This signals removal of the host

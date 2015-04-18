@@ -10,7 +10,7 @@ namespace GoingViral
     /// The virus class is a glorified struct. It never actually acts on
     /// anything itself, it just stores a whole lot of variables.
     /// </summary>
-    class Virus
+    public class Virus
     {
         public Virus()
         {

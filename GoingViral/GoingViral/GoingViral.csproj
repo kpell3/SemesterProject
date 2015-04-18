@@ -53,6 +53,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\Controls\MapInformationControl.xaml.cs">
+      <DependentUpon>MapInformationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Status.cs" />
     <Compile Include="Viruses\ActiveVirus.cs" />
     <Compile Include="Viruses\Traits\Condition.cs" />
@@ -63,7 +69,7 @@
     <Compile Include="Viruses\Traits\Resiliency.cs" />
     <Compile Include="Viruses\Traits\TransmissionMethod.cs" />
     <Compile Include="Viruses\Virus.cs" />
-    <Page Include="EntryScreen.xaml">
+    <Page Include="GUI\EntryScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,10 +77,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EntryScreen.xaml.cs">
+    <Compile Include="GUI\EntryScreen.xaml.cs">
       <DependentUpon>EntryScreen.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="GUI\Controls\MapInformationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\GameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Host.cs" />

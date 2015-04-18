@@ -9,7 +9,7 @@ namespace GoingViral
     /// <summary>
     /// Represents how long symptoms stay active in a host
     /// </summary>
-    enum Progression
+    public enum Progression
     {
         /// <summary>
         /// Symptoms come and go within a day or so.

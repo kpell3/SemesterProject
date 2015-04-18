@@ -9,7 +9,7 @@ namespace GoingViral
     /// <summary>
     /// Represents how a virus is transferred from one host to another
     /// </summary>
-    enum TransmissionMethod
+    public enum TransmissionMethod
     {
         /// <summary>
         /// Means a virus is carried in the blood. Not very effective

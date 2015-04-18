@@ -11,7 +11,7 @@ namespace GoingViral
     /// is being controlled by the user. Often, this virus has not yet actually
     /// been deployed, since deploying it will set the conditions of the virus.
     /// </summary>
-    class ActiveVirus : Virus
+    public class ActiveVirus : Virus
     {
         ActiveVirus()
         {

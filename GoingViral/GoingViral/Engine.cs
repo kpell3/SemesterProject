@@ -11,7 +11,7 @@ namespace GoingViral
     /// the runtime loop, and keeping track of the map, and other game-wide
     /// events.
     /// </summary>
-    class Engine
+    public class Engine
     {
         /// <summary>
         /// A basic constructor

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoingViral
 {
-    class Condition
+    public class Condition
     {
         public Condition()
         {

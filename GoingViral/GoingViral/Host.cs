@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoingViral
 {
-    class Host
+    public class Host
     {
         Host(Virus virus, double NumberOfPeople)
         {

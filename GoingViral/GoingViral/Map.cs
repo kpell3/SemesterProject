@@ -10,7 +10,7 @@ namespace GoingViral
     /// Represents the world in its current state. Any worldwide or regional
     /// events will happen here.
     /// </summary>
-    class Map
+    public class Map
     {
         /// <summary>
         /// This will generate the inital map conditions.
