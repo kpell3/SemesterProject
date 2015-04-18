@@ -56,8 +56,13 @@
     <Compile Include="GUI\Controls\MapInformationControl.xaml.cs">
       <DependentUpon>MapInformationControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GameMode.cs" />
     <Compile Include="GUI\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\GUI.cs" />
+    <Compile Include="GUI\ModifyVirusWindow.xaml.cs">
+      <DependentUpon>ModifyVirusWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Status.cs" />
     <Compile Include="Viruses\ActiveVirus.cs" />
@@ -89,6 +94,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\ModifyVirusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Host.cs" />
@@ -117,6 +126,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="GUI\Images\RewriteWhenSoberLogo.gif" />
+    <Resource Include="GUI\Images\ViralBackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

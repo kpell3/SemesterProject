@@ -24,24 +24,24 @@ namespace GoingViral
 		{
 			//Run through the InfectedHosts list.
 			List<string> InfectionsToTrigger = new List<string>();
-			foreach (Host thisHost in InfectedHosts)
+			foreach( Host thisHost in InfectedHosts )
 			{
 				//A virus can always spread locally.
 				List<string> InfectableLocations = new List<string>();
 				InfectableLocations.Add(Name);
 				//A virus can always spread by land if the area isn't under quarentine.
-				if (!IsUnderQuarentine)
+				if( !IsUnderQuarentine )
 				{
 					InfectableLocations.AddRange(LocationsAdjacentByLand);
 				}
 				//A virus can only spread by sea if carried in the air or in the water.
-				if (thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Waterbourne
-					|| thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne)
+				if( thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Waterbourne
+					|| thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne )
 				{
 					InfectableLocations.AddRange(LocationsAdjacentBySea);
 				}
 				//A virus can only spread by plane if carried in the air. Airlines use bottled water.
-				if (thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne)
+				if( thisHost.InfectedBy.VirusTransmissionMethod == TransmissionMethod.Airbourne )
 				{
 					InfectableLocations.AddRange(LocationsAdjacentByAir);
 				}

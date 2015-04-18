@@ -1,0 +1,11 @@
+﻿<Window x:Class="GoingViral.GUI.ModifyVirusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ModifyVirusWindow" Height="378" Width="501">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="75,64,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="SystemLabel" Content="SYSTEMS" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ImmuneLabel" Content="IMMUNE" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

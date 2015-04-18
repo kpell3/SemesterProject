@@ -14,19 +14,14 @@ using System.Windows.Shapes;
 
 namespace GoingViral.GUI
 {
-    /// <summary>
-    /// Interaction logic for GameWindow.xaml
-    /// </summary>
-    public partial class GameWindow : Window
-    {
-        public GameWindow()
-        {
-            InitializeComponent();
-        }
-
-		private void ModifyVirusButton_Click(object sender, RoutedEventArgs e)
+	/// <summary>
+	/// Interaction logic for ModifyVirusWindow.xaml
+	/// </summary>
+	public partial class ModifyVirusWindow : Window
+	{
+		public ModifyVirusWindow()
 		{
-			
+			InitializeComponent();
 		}
-    }
+	}
 }
