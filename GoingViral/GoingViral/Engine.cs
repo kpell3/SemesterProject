@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoingViral.GUI;
 
 namespace GoingViral
 {
@@ -16,9 +17,23 @@ namespace GoingViral
 		/// <summary>
 		/// A basic constructor
 		/// </summary>
-		public Engine()
+		public Engine( GameMode mMode )
 		{
+			//Initialize variables
+			TheGUI = new GUI.GUI();
+			mTheActiveVirus = new ActiveVirus();
+			TheMap = new Map();
 		}
+
+		/// <summary>
+		/// Receives control of the program from the entry screen and prepares 
+		/// to run the game
+		/// </summary>
+		public void StartGame()
+		{
+			TheGUI.mGameWindow.Show();
+		}
+
 		/// <summary>
 		/// Will run one turn of the game
 		/// </summary>
@@ -26,7 +41,8 @@ namespace GoingViral
 		{
 			try
 			{
-				theMap.TakeOneTurn();
+				TheMap.TakeOneTurn();
+				TheGUI.Update( this );
 			}
 			catch( Exception e )
 			{
@@ -43,16 +59,48 @@ namespace GoingViral
 			//using the stopwatch
 			while( true )
 			{
-				theMap.TakeOneTurn();
+				TheMap.TakeOneTurn();
 			}
 		}
 
 		/// <summary>
 		/// The map object representing the game board.
 		/// </summary>
-		Map theMap = new Map();
+		public Map TheMap
+		{
+			get;
+			private set;
+		}
+
+		/// <summary>
+		/// A GUI that will be made when the game mode is decided.
+		/// </summary>
+		public GUI.GUI TheGUI
+		{
+			get;
+			private set;
+		}
+
 		//need some kind of a stopwatch to keep track of time to make turns
 		//process smoothly
 		public double NumberOfTurnsPerSecond = 1;
+
+		/// <summary>
+		/// The Active Virus
+		/// </summary>
+		public ActiveVirus mTheActiveVirus
+		{
+			get;
+			private set;
+		}
+
+		/// <summary>
+		/// The number of DNA points that the player has. -1 is infinite.
+		/// </summary>
+		public double mDNAPoints
+		{
+			get;
+			private set;
+		}
 	}
 }

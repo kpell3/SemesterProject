@@ -23,5 +23,9 @@ namespace GoingViral.GUI
 		{
 			InitializeComponent();
 		}
+		public void Update( Engine theEngine )
+		{
+			//Update this window with values from the engine
+		}
 	}
 }

@@ -65,12 +65,14 @@ namespace GoingViral.GUI
 
 		private void NewSandboxGame_Click( object sender, RoutedEventArgs e )
 		{
-			GUI theGUI = new GUI( GameMode.SandboxMode );
+			Engine theEngine = new Engine( GameMode.SandboxMode );
+			theEngine.StartGame();
 		}
 
 		private void NewRegularGame_Click( object sender, RoutedEventArgs e )
 		{
-
+			Engine theEngine = new Engine( GameMode.RegularMode );
+			theEngine.StartGame();
 		}
 
 		private void opt_Click( object sender, RoutedEventArgs e )

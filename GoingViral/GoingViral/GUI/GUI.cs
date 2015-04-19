@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GoingViral.GUI
 {
@@ -13,19 +14,31 @@ namespace GoingViral.GUI
 	/// </summary>
 	public class GUI
 	{
-		public GUI( GameMode mode )
+		public GUI()
 		{
-			mGameMode = mode;
-			if( mGameMode == GameMode.RegularMode )
-			{
-			}
-			else if( mGameMode == GameMode.SandboxMode )
-			{
+			mGameWindow.ModifyVirusButton.Click += ModifyVirusButton_Click;
+		}
 
+		public void Update( Engine theEngine )
+		{
+			if( mGameWindow.Visibility == Visibility.Visible )
+			{
+				mGameWindow.Update( theEngine );
+			}
+			if( mModifyVirusWindow.Visibility == Visibility.Visible )
+			{
+				mModifyVirusWindow.Update( theEngine );
 			}
 		}
-		public ModifyVirusWindow mModifyVirusWindow = new ModifyVirusWindow();
+
+		void ModifyVirusButton_Click( object sender, RoutedEventArgs e )
+		{
+			mModifyVirusWindow.Show();
+		}
+
 		public GameWindow mGameWindow = new GameWindow();
+		public ModifyVirusWindow mModifyVirusWindow = new ModifyVirusWindow();
+
 		GameMode mGameMode;
 	}
 }

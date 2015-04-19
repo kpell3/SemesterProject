@@ -13,7 +13,7 @@ namespace GoingViral
 	/// </summary>
 	public class ActiveVirus : Virus
 	{
-		ActiveVirus()
+		public ActiveVirus()
 		{
 
 		}
@@ -22,7 +22,7 @@ namespace GoingViral
 		/// have when it is deployed.
 		/// </summary>
 		/// <param name="newCondition">The condition to add</param>
-		void AddCondition( Condition newCondition )
+		public void AddCondition( Condition newCondition )
 		{
 			Conditions.Add( newCondition );
 		}
@@ -31,7 +31,7 @@ namespace GoingViral
 		/// have when it is deployed.
 		/// </summary>
 		/// <param name="toRemove">The condition to be removed</param>
-		void RemoveCondition( Condition toRemove )
+		public void RemoveCondition( Condition toRemove )
 		{
 			if( Conditions.Contains( toRemove ) )
 			{
