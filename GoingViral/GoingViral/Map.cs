@@ -21,11 +21,11 @@ namespace GoingViral
 			//Initialize the map
 			for( int x = 0; x < 10; ++x )
 			{
-				theMap.Add( new Location( "TestLocation" + x.ToString(), 100000.0 ) );
-				for( int y = 0; y < 10; ++y )
-				{
-					theMap[x].LocationsAdjacentByLand.Add( "TestLocation" + y );
-				}
+				//theMap.Add( new Location( "TestLocation" + x.ToString(), 100000.0 ) );
+				//for( int y = 0; y < 10; ++y )
+			//	{
+			//		theMap[x].LocationsAdjacentByLand.Add( "TestLocation" + y );
+			//	}
 			}
 		}
 		/// <summary>

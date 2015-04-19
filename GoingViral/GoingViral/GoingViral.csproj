@@ -57,10 +57,10 @@
       <DependentUpon>MapInformationControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\GameMode.cs" />
+    <Compile Include="GUI\GUI.cs" />
     <Compile Include="GUI\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\GUI.cs" />
     <Compile Include="GUI\ModifyVirusWindow.xaml.cs">
       <DependentUpon>ModifyVirusWindow.xaml</DependentUpon>
     </Compile>
@@ -91,8 +91,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\GameWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\ModifyVirusWindow.xaml">
       <SubType>Designer</SubType>
@@ -127,7 +127,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="GUI\Images\Biohazard.png" />
+    <Resource Include="GUI\Images\World Map.jpg" />
+    <Resource Include="GUI\Images\WorldMapFull.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="GUI\Images\RewriteWhenSoberLogo.gif" />
     <Resource Include="GUI\Images\ViralBackground.jpg" />
