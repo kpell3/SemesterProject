@@ -23,11 +23,8 @@ namespace GoingViral.GUI
         public GameWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            
+			WestUSButton.MouseDown += HUD.Button_MouseMove;
+			EastUSButton.MouseEnter += HUD.Button_MouseMove;
         }
 
 		private void ModifyVirusButton_Click( object sender, RoutedEventArgs e )
@@ -38,6 +35,11 @@ namespace GoingViral.GUI
 		public void Update( Engine theEngine )
 		{
 			//Update the window with values from the engine.
+		}
+
+		private void RegionButton_Click( object sender, RoutedEventArgs e )
+		{
+			
 		}
     }
 }

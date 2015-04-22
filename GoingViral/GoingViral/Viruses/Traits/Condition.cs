@@ -24,6 +24,7 @@ namespace GoingViral
 			InfectiousnessMultiplier = infectiousness;
 			SurvivabilityMultiplier = survivability;
 			VisibilityMultiplier = visibility;
+			Tooltip = tooltip;
 		}
 		/// <summary>
 		/// The name of this condition

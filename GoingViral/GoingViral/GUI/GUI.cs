@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.ComponentModel;
 
 namespace GoingViral.GUI
 {
@@ -17,8 +18,27 @@ namespace GoingViral.GUI
 		public GUI()
 		{
 			mGameWindow.ModifyVirusButton.Click += ModifyVirusButton_Click;
+			mGameWindow.Closing += Exit;
+			mModifyVirusWindow.Closing += HideModifyVirusWindow;
 		}
 
+		private void HideModifyVirusWindow( object sender, CancelEventArgs e )
+		{
+			e.Cancel = true;
+			mModifyVirusWindow.Hide();
+		}
+		void Exit( object sender, CancelEventArgs e )
+		{
+			try
+			{
+				mModifyVirusWindow.Closing -= HideModifyVirusWindow;
+				mModifyVirusWindow.Close();
+			}
+			catch( Exception ex )
+			{
+				//well, we tried to close it.
+			}
+		}
 		public void Update( Engine theEngine )
 		{
 			if( mGameWindow.Visibility == Visibility.Visible )

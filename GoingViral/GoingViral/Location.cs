@@ -79,17 +79,17 @@ namespace GoingViral
 		/// <summary>
 		/// Locations that you can walk or drive to from this location
 		/// </summary>
-		public List<string> LocationsAdjacentByLand;
+		public List<string> LocationsAdjacentByLand = new List<string>();
 
 		/// <summary>
 		/// Locations that you can fly to from this location
 		/// </summary>
-		public List<string> LocationsAdjacentByAir;
+		public List<string> LocationsAdjacentByAir = new List<string>();
 
 		/// <summary>
 		/// Locations that you can take a boat to from this location
 		/// </summary>
-		public List<string> LocationsAdjacentBySea;
+		public List<string> LocationsAdjacentBySea = new List<string>();
 
 		/// <summary>
 		/// A list of currently infected hosts.

@@ -33,13 +33,13 @@ namespace GoingViral
 			Condition Dissolution = new Condition( "Skeletal(Bones)", "Skeletal Dissolution", 1, 4, 3,
 				"Your skeleton dissolves, leaving you in a puddle on the floor. Usually fatal, but obvious." );
 
-			Condition Cramping = new Condition( "Muscular(muscles)", "Cramping", 1, 1.05, 1.15,
+			Condition Cramping = new Condition( "Muscular(Muscles)", "Cramping", 1, 1.05, 1.15,
 				"Cramping is painful, and can therefore be seen, but a bad cramp at the wrong time can cause death" );
-			Condition Tremors = new Condition( "Muscular(muscles)", "Tremors", 1, 1.05, 1.05,
+			Condition Tremors = new Condition( "Muscular(Muscles)", "Tremors", 1, 1.05, 1.05,
 				"Tremors are involuntary movements of the muscle. They are not very deadly or visible." );
-			Condition Dystrophy = new Condition( "Muscular(muscles)", "Dystrophy", 1, 2, 2,
+			Condition Dystrophy = new Condition( "Muscular(Muscles)", "Dystrophy", 1, 2, 2,
 				"Muscular Dystrophy means that your muscles decay slowly. Can be quite deadly but also visible." );
-			Condition LossOfControl = new Condition( "Muscular(muscles)", "Loss Of Control", 1, 3, 3,
+			Condition LossOfControl = new Condition( "Muscular(Muscles)", "Loss Of Control", 1, 3, 3,
 				"Total loss of muscular control. Very deadly but very noticable." );
 
 			Condition MinorComp = new Condition( "Immune", "Minorly Compromised", 1.25, 1.10, 1.05,
@@ -51,17 +51,74 @@ namespace GoingViral
 			Condition Rogue = new Condition( "Immune", "Rogue", 1.25, 3, 2,
 				"The immune system has gone rogue and is now attacking the body. Very hard to survive, and increased infectiousness, but visible." );
 
-			Condition Palpitation = new Condition( "Cardiovascular(heart)", "Palpitation", 1, 1.10, 1.05,
+			Condition Palpitation = new Condition( "Cardiovascular(Heart)", "Palpitation", 1, 1.10, 1.05,
 				"Heart palpitations hurt, and can be dangerous, and aren't very visible." );
-			Condition Murmur = new Condition( "Cardiovascular(heart)", "Murmur", 1, 1.25, 1.10,
+			Condition Murmur = new Condition( "Cardiovascular(Heart)", "Murmur", 1, 1.25, 1.10,
 				"Heart murmurs are dangerous and not very visible." );
-			Condition Hemophilia = new Condition( "Cardiovascular(heart)", "Hemophilia", 1.25, 1.25, 1.10,
+			Condition Hemophilia = new Condition( "Cardiovascular(Heart)", "Hemophilia", 1.25, 1.25, 1.10,
 				"This means that your blood doesn't clot. This makes it splatter and can cause infection, and prevents you from healing from cuts effectively. It is somewhat visible." );
-			Condition HeartFailure = new Condition( "Cardiovascular(heart)", "Heart Failure", 1, 5, 2,
+			Condition HeartFailure = new Condition( "Cardiovascular(Heart)", "Heart Failure", 1, 5, 2,
 				"You need your heart. If if fails, it is almost always fatal without a transplant. It is also visible." );
 
-			Condition Nausea = new Condition( "Digestive(stomach)", "Nausea", 1, 1, 1, "" );
+			Condition Nausea = new Condition( "Digestive(Stomach)", "Nausea", 1, 1, 1.1,
+				"Nausea is uncomfortable and noticable, but not deadly." );
+			Condition Vomiting = new Condition( "Digestive(Stomach)", "Vomiting", 1.25, 1.25, 1.5,
+				"Vomiting is noticable, but is also dangerous and gives potential for additional infection." );
+			Condition Ulcers = new Condition( "Digestive(Stomach)", "Ulcers", 1, 1.5, 1.10,
+				"Ulcers are dangerous, and not particularly visible until autopsy." );
+			Condition DigestiveParalysis = new Condition( "Digestive(Stomach)", "Digestive Paralysis", 1, 4, 1.10,
+				"Digestive paralysis is dangerous and hard to diagnose, and relatively invisible after death." );
 
+			Condition Pleurisy = new Condition( "Respiratory(Lungs)", "Pleurisy", 1, 1.10, 1.5,
+				"Pleurisy is an infection in the lungs that makes it painful to breathe. It can cause pneumonia if you don't breathe deeply." );
+			Condition Pneumonia = new Condition( "Respiratory(Lungs)", "Pneumonia", 1, 1.5, 1.1,
+				"Pneumonia is when your lungs fill up with fluid. It is dangerous, and often confused with other causes." );
+			Condition CollapsedLung = new Condition( "Respiratory(Lungs)", "Collapsed Lung", 1, 3, 3,
+				"Yep, a lung collapsed. Only having one lung doesn't usually last someone long." );
+			Condition FloodedLungs = new Condition( "Respiratory(Lungs)", "Lungs Flooded", 1, 8, 5,
+				"This is when a person's lungs fill completely with fluid, drowning them. Very difficult to treat, and results in death in minutes." );
+
+			Condition Drowsiness = new Condition( "Nervous(Brain)", "Drowsiness", 1, 1.05, 1.01,
+				"Drowsiness can be dangerous when operating machinery or driving. Lots of people are drowsy often, so it isn't really noticable." );
+			Condition Seizures = new Condition( "Nervous(Brain)", "Seizures", 1.05, 1.5, 1.5,
+				"Seizures are very visible and dangerous. They also can cause vomiting or draw blood, which can increase infection." );
+			Condition Paralysis = new Condition( "Nervous(Brain)", "Paralysis", 0.95, 1.5, 1.5,
+				"Sudden onset Paralysis can be extraordinarily dangerous and visible. However, due to the nature, it actually makes a host slightly less infectious." );
+			Condition ALS = new Condition( "Nervous(Brain)", "ALS", 1, 10, 5,
+				"ALS or Lou Gherig's disease is a degeneration of the nervous system. Is is chronic and fatal, but can take time to kill." );
+			PossibleConditions = new List<Condition>();
+			PossibleConditions.Add( Dryness );
+			PossibleConditions.Add( Rash );
+			PossibleConditions.Add( OpenSores );
+			PossibleConditions.Add( Necrosis );
+			PossibleConditions.Add( ToothDecay );
+			PossibleConditions.Add( Osteoporosis );
+			PossibleConditions.Add( Osteopetrosis );
+			PossibleConditions.Add( Dissolution );
+			PossibleConditions.Add( Cramping );
+			PossibleConditions.Add( Tremors );
+			PossibleConditions.Add( Dystrophy );
+			PossibleConditions.Add( LossOfControl );
+			PossibleConditions.Add( MinorComp );
+			PossibleConditions.Add( MajorComp );
+			PossibleConditions.Add( Useless );
+			PossibleConditions.Add( Rogue );
+			PossibleConditions.Add( Palpitation );
+			PossibleConditions.Add( Murmur );
+			PossibleConditions.Add( Hemophilia );
+			PossibleConditions.Add( HeartFailure );
+			PossibleConditions.Add( Nausea );
+			PossibleConditions.Add( Vomiting );
+			PossibleConditions.Add( Ulcers );
+			PossibleConditions.Add( DigestiveParalysis );
+			PossibleConditions.Add( Pleurisy );
+			PossibleConditions.Add( Pneumonia );
+			PossibleConditions.Add( CollapsedLung );
+			PossibleConditions.Add( FloodedLungs );
+			PossibleConditions.Add( Drowsiness );
+			PossibleConditions.Add( Seizures );
+			PossibleConditions.Add( Paralysis );
+			PossibleConditions.Add( ALS );
 		}
 		/// <summary>
 		/// The Strain of this virus. In a multi-player game, represents

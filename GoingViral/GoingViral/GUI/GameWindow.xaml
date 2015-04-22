@@ -1,241 +1,242 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="GoingViral.GUI.GameWindow"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:GoingViral.Controls" mc:Ignorable="d" x:Class="GoingViral.GUI.GameWindow"
         Title="GoingViral" Height="768" Width="1424">
-    <Grid>
-        <Image x:Name="WorldMapImage" Source ="Images\WorldMapFull.jpg" Margin="0,0,150,0" IsEnabled="False" Stretch="UniformToFill"/>
-        <Button x:Name="WestUSButton" MinHeight="30" MinWidth="30" Margin="223,324,1163,384">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="EastUSButton" MinHeight="30" MinWidth="30" Margin="314,324,1072,384">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthCanadaButton" MinHeight="30" MinWidth="30" Margin="259,280,1127,428">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthCanadaAndAlaskaButton" MinHeight="30" MinWidth="30" Margin="171,143,1215,565">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="MexicoAndCentralAmericaButton" MinHeight="30" MinWidth="30" Margin="288,393,1098,315">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthEastUSAndEastCanadaButton" MinHeight="30" MinWidth="30" Margin="355,272,1031,436">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthWestSouthAmericaButton" MinHeight="30" MinWidth="30" Margin="355,453,1031,255">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="EastSouthAmericaButton" MinHeight="30" MinWidth="30" Margin="441,497,945,211">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthSouthAmericaButton" MinHeight="30" MinWidth="30" Margin="381,594,1005,114">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="WestAfricaButton" MinHeight="30" MinWidth="30" Margin="632,443,754,265">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="EastAfricaButton" MinHeight="30" MinWidth="30" Margin="732,443,654,265">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthAfricaButton" MinHeight="30" MinWidth="30" Margin="614,344,772,364">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthAfricaButton" MinHeight="30" MinWidth="30" Margin="676,561,710,147" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="WestEuropeButton" MinHeight="30" MinWidth="30" Margin="598,253,788,455">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthEuropeButton" MinHeight="30" MinWidth="30" Margin="640,187,746,521">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="EastEuropeButton" MinHeight="30" MinWidth="30" Margin="662,267,724,441" RenderTransformOrigin="1.767,0.5">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthEuropeButton" MinHeight="30" MinWidth="30" Margin="632,297,754,411">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="GreenlandButton" MinHeight="30" MinWidth="30" Margin="508,143,878,565">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="WestRussiaButton" MinHeight="30" MinWidth="30" Margin="742,204,644,504">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthRussiaButton" MinHeight="30" MinWidth="30" Margin="872,110,514,598" RenderTransformOrigin="0.733,2.733">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthRussiaButton" MinHeight="30" MinWidth="30" Margin="887,204,499,504">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="EastRussiaButton" MinHeight="30" MinWidth="30" Margin="1016,143,370,565">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthMiddleEastButton" MinHeight="30" MinWidth="30" Margin="754,384,632,324">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthEastChinaButton" MinHeight="30" MinWidth="30" Margin="970,297,416,411">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="SouthChinaButton" MinHeight="30" MinWidth="30" Margin="970,353,416,355">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthWestChinaButton" MinHeight="30" MinWidth="30" Margin="898,297,488,411">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="IndiaButton" MinHeight="30" MinWidth="30" Margin="861,372,525,336">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NorthMiddleEastButton" MinHeight="30" MinWidth="30" Margin="732,324,654,384">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="JapanButton" MinHeight="30" MinWidth="30" Margin="1054,297,332,411">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="WestIndonesiaButton" MinHeight="30" MinWidth="30" Margin="985,453,401,255">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="EastIndonesiaButton" MinHeight="30" MinWidth="30" Margin="1080,476,306,232">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="AustraliaButton" MinHeight="30" MinWidth="30" Margin="1080,594,306,114">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="NewZealandButton" MinHeight="30" MinWidth="30" Margin="1163,654,223,54">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="Images\Biohazard.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-		<Button x:Name="ModifyVirusButton"  Content="Modify Virus" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="75" MinHeight="75"  Click="ModifyVirusButton_Click" Height="127" Width="145" Margin="0,0,0,10"/>
+	<Grid>
+		<Image x:Name="WorldMapImage" Source ="Images\WorldMapFull.jpg" Margin="0,0,150,0" IsEnabled="False" Stretch="UniformToFill"/>
+		<Button x:Name="WestUSButton" MinHeight="30" MinWidth="30" Margin="223,324,1163,384">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="EastUSButton" MinHeight="30" MinWidth="30" Margin="314,324,1072,384">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthCanadaButton" MinHeight="30" MinWidth="30" Margin="259,280,1127,428">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthCanadaAndAlaskaButton" MinHeight="30" MinWidth="30" Margin="171,143,1215,565">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="MexicoAndCentralAmericaButton" MinHeight="30" MinWidth="30" Margin="288,393,1098,315">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthEastUSAndEastCanadaButton" MinHeight="30" MinWidth="30" Margin="355,272,1031,436">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthWestSouthAmericaButton" MinHeight="30" MinWidth="30" Margin="355,453,1031,255">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="EastSouthAmericaButton" MinHeight="30" MinWidth="30" Margin="441,497,945,211">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthSouthAmericaButton" MinHeight="30" MinWidth="30" Margin="381,594,1005,114">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="WestAfricaButton" MinHeight="30" MinWidth="30" Margin="632,443,754,265">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="EastAfricaButton" MinHeight="30" MinWidth="30" Margin="732,443,654,265">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthAfricaButton" MinHeight="30" MinWidth="30" Margin="614,344,772,364">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthAfricaButton" MinHeight="30" MinWidth="30" Margin="676,561,710,147" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="WestEuropeButton" MinHeight="30" MinWidth="30" Margin="598,253,788,455">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthEuropeButton" MinHeight="30" MinWidth="30" Margin="640,187,746,521">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="EastEuropeButton" MinHeight="30" MinWidth="30" Margin="662,267,724,441" RenderTransformOrigin="1.767,0.5">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthEuropeButton" MinHeight="30" MinWidth="30" Margin="632,297,754,411">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="GreenlandButton" MinHeight="30" MinWidth="30" Margin="508,143,878,565">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="WestRussiaButton" MinHeight="30" MinWidth="30" Margin="742,204,644,504">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthRussiaButton" MinHeight="30" MinWidth="30" Margin="872,110,514,598" RenderTransformOrigin="0.733,2.733">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthRussiaButton" MinHeight="30" MinWidth="30" Margin="887,204,499,504">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="EastRussiaButton" MinHeight="30" MinWidth="30" Margin="1016,143,370,565">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthMiddleEastButton" MinHeight="30" MinWidth="30" Margin="754,384,632,324">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthEastChinaButton" MinHeight="30" MinWidth="30" Margin="970,297,416,411">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="SouthChinaButton" MinHeight="30" MinWidth="30" Margin="970,353,416,355">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthWestChinaButton" MinHeight="30" MinWidth="30" Margin="898,297,488,411">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="IndiaButton" MinHeight="30" MinWidth="30" Margin="861,372,525,336">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NorthMiddleEastButton" MinHeight="30" MinWidth="30" Margin="732,324,654,384">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="JapanButton" MinHeight="30" MinWidth="30" Margin="1054,297,332,411">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="WestIndonesiaButton" MinHeight="30" MinWidth="30" Margin="985,453,401,255">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="EastIndonesiaButton" MinHeight="30" MinWidth="30" Margin="1080,476,306,232">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="AustraliaButton" MinHeight="30" MinWidth="30" Margin="1080,594,306,114">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="NewZealandButton" MinHeight="30" MinWidth="30" Margin="1163,654,223,54">
+			<Button.Template>
+				<ControlTemplate>
+					<Image Source="Images\Biohazard.png"/>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
+		<Button x:Name="ModifyVirusButton"  Content="Modify Virus" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="75" MinHeight="75"  Click="ModifyVirusButton_Click" Height="127" Width="145"/>
+		<Controls:MapInformationControl x:Name="HUD" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Height="601"/>
 	</Grid>
 </Window>

@@ -23,6 +23,9 @@ namespace GoingViral
 			TheGUI = new GUI.GUI();
 			mTheActiveVirus = new ActiveVirus();
 			TheMap = new Map();
+			TheGUI.mGameWindow.HUD.MapInfo = TheMap;
+			TheGUI.mModifyVirusWindow.theVirus = mTheActiveVirus;
+			TheGUI.mModifyVirusWindow.Populatebuttons();
 		}
 
 		/// <summary>
@@ -37,7 +40,7 @@ namespace GoingViral
 		/// <summary>
 		/// Will run one turn of the game
 		/// </summary>
-		public void TakeOneTurn()
+		public bool TakeOneTurn()
 		{
 			try
 			{
@@ -46,8 +49,10 @@ namespace GoingViral
 			}
 			catch( Exception e )
 			{
+				return false;
 				//Throw E to some kind of error window
 			}
+			return true;
 		}
 		/// <summary>
 		/// Will run the simulation in a realtime loop based upon
@@ -57,9 +62,9 @@ namespace GoingViral
 		{
 			//This will need to be a timed runtime loop, processing turns
 			//using the stopwatch
-			while( true )
+			while( TheMap.TakeOneTurn() )
 			{
-				TheMap.TakeOneTurn();
+				
 			}
 		}
 

@@ -73,6 +73,13 @@ namespace GoingViral.GUI
 		{
 			Engine theEngine = new Engine( GameMode.RegularMode );
 			theEngine.StartGame();
+			Hide();
+			theEngine.TheGUI.mGameWindow.Closed += Close;
+		}
+
+		private void Close( object sender, EventArgs e )
+		{
+			Close();
 		}
 
 		private void opt_Click( object sender, RoutedEventArgs e )
