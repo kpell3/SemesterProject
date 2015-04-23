@@ -35,7 +35,7 @@ namespace GoingViral
 		/// <summary>
 		/// The execution of a single turn happens here.
 		/// </summary>
-		public bool TakeOneTurn()
+		public bool TakeOneTurn( Virus theVirus )
 		{
 			//Execute anything that needs to happen world wide
 			List<string> InfectionsToTrigger = new List<string>();
@@ -49,7 +49,7 @@ namespace GoingViral
 				{
 					if( loc2.Name.Equals( loc1, StringComparison.Ordinal ) )
 					{
-						loc2.InfectNewHost();
+						loc2.InfectNewHost( theVirus );
 					}
 				}
 			}
@@ -82,5 +82,12 @@ namespace GoingViral
 		/// A List of locations that actually makes up the map itself
 		/// </summary>
 		public List<Location> theMap = new List<Location>();
+
+		public void ReleaseVirus( Virus theVirus )
+		{
+			Random random = new Random();
+			int i = random.Next( 0, theMap.Count );
+			theMap[i].InfectNewHost( theVirus );
+		}
 	}
 }

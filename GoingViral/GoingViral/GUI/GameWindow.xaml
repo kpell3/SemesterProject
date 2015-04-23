@@ -238,5 +238,6 @@
 		</Button>
 		<Button x:Name="ModifyVirusButton"  Content="Modify Virus" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="75" MinHeight="75"  Click="ModifyVirusButton_Click" Height="127" Width="145"/>
 		<Controls:MapInformationControl x:Name="HUD" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Height="601"/>
+		<Button x:Name="PauseButton" Content="Unpause" HorizontalAlignment="Right" Margin="0,0,0,132" VerticalAlignment="Bottom" Width="145" Height="45"/>
 	</Grid>
 </Window>

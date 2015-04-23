@@ -24,10 +24,12 @@ namespace GoingViral
 		{
 			//Run through the InfectedHosts list.
 			List<string> InfectionsToTrigger = new List<string>();
+			List<Host> DeadHosts = new List<Host>();
 			foreach( Host thisHost in InfectedHosts )
 			{
 				//A virus can always spread locally.
 				List<string> InfectableLocations = new List<string>();
+
 				InfectableLocations.Add( Name );
 				//A virus can always spread by land if the area isn't under quarentine.
 				if( !IsUnderQuarentine )
@@ -46,17 +48,50 @@ namespace GoingViral
 					InfectableLocations.AddRange( LocationsAdjacentByAir );
 				}
 				InfectionsToTrigger.AddRange( thisHost.Infect( InfectableLocations ) );
-				thisHost.Progress();
+				if( thisHost.Progress() == Status.Dead )
+				{
+					DeadHosts.Add( thisHost );
+				}
+			}
+			foreach( Host deadhost in DeadHosts )
+			{
+				Population -= deadhost.NumberOfPeopleRepresentedByThisHost;
+				if( Population < 0 )
+					Population = 0;
+				InfectedHosts.Remove( deadhost );
 			}
 			return InfectionsToTrigger;
 			//Determine if the Water/Air got infected.
 			//Determine if the area has been quarentined
+
 		}
 		/// <summary>
 		/// This will create a newly infected host in this region, and progress the 
 		/// </summary>
-		public void InfectNewHost()
+		public void InfectNewHost( Virus theVirus )
 		{
+			if( Population > 0 )
+			{
+				if( InfectedHosts.Count == 0 || InfectedHosts.Count * InfectedHosts[0].NumberOfPeopleRepresentedByThisHost < Population )
+				{
+					if( InfectedHosts.Count >= 1000 )
+					{
+						for( int x = 0; x < 100; ++x )
+						{
+							InfectedHosts[x].NumberOfPeopleRepresentedByThisHost *= 10;
+						}
+						InfectedHosts.RemoveRange( 100, InfectedHosts.Count - 100 );
+					}
+					else if( InfectedHosts.Count > 0 )
+					{
+						InfectedHosts.Add( new Host( theVirus, InfectedHosts[0].NumberOfPeopleRepresentedByThisHost ) );
+					}
+					else
+					{
+						InfectedHosts.Add( new Host( theVirus, 1.0 ) );
+					}
+				}
+			}
 		}
 		/// <summary>
 		/// The name of the location to be displayed on the map

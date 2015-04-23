@@ -33,14 +33,16 @@ namespace GoingViral.GUI
 					if( childVisual is Button )
 					{
 						Button thebutton = childVisual as Button;
-						double index = Char.GetNumericValue(thebutton.Name[ thebutton.Name.Length - 1 ]);
-						string buttonsystem = thebutton.Name.Substring(0,thebutton.Name.IndexOf("Button"));
+						thebutton.Background = Brushes.DarkBlue;
+						thebutton.Foreground = Brushes.Yellow;
+						double index = Char.GetNumericValue( thebutton.Name[thebutton.Name.Length - 1] );
+						string buttonsystem = thebutton.Name.Substring( 0, thebutton.Name.IndexOf( "Button" ) );
 						foreach( Condition cond in theVirus.PossibleConditions )
 						{
 							string system = cond.System;
-							if( system.Contains("(") )
+							if( system.Contains( "(" ) )
 							{
-								system = system.Substring( 0, system.IndexOf("("));
+								system = system.Substring( 0, system.IndexOf( "(" ) );
 							}
 							if( system == buttonsystem && index == 1 )
 							{
@@ -57,14 +59,66 @@ namespace GoingViral.GUI
 				}
 			}
 		}
-		public void Update( Engine theEngine )
+		public void Update()
 		{
-			//Update this window with values from the engine
+			//Update this window with values from the active virus
+			IncubationPeriodBox.Text = theVirus.IncubationPeriod_Days.ToString();
+			TimeToKillBox.Text = theVirus.TimeToKill.ToString();
+			TimeToRecoverBox.Text = theVirus.TimeToRecover.ToString();
+			TotalInfectiousnessBox.Text = theVirus.Infectiousness.ToString();
 		}
 		public ActiveVirus theVirus
 		{
 			get;
 			set;
+		}
+
+		private void ConditionButton_Click( object sender, RoutedEventArgs e )
+		{
+			string senderName = ( sender as Button ).Content.ToString();
+			Button senderButton = sender as Button;
+			if( theVirus.HasCondition( senderName ) )
+			{
+				theVirus.RemoveCondition( theVirus.GetConditionByName( senderName ) );
+				senderButton.Background = Brushes.DarkBlue;
+				senderButton.Foreground = Brushes.Yellow;
+			}
+			else
+			{
+				theVirus.AddCondition( theVirus.GetConditionByName( senderName ) );
+				senderButton.Background = Brushes.LawnGreen;
+				senderButton.Foreground = Brushes.Black;
+			}
+			Update();
+		}
+
+		private void InfectivityBar_ValueChanged( object sender, RoutedPropertyChangedEventArgs<double> e )
+		{
+			if( theVirus != null )
+			{
+				theVirus.AdditionalInfectiousness = (sender as Slider).Value;
+				theVirus.UpdateVirusInformation();
+				Update();
+			}
+		}
+
+		private void TimeUntilOnset_ValueChanged( object sender, RoutedPropertyChangedEventArgs<double> e )
+		{
+			if( theVirus != null )
+			{
+				theVirus.IncubationPeriod_Days = ( sender as Slider ).Value;
+				Update();
+			}
+		}
+
+		private void StartOfInfectiousness_ValueChanged( object sender, RoutedPropertyChangedEventArgs<double> e )
+		{
+			if( theVirus != null )
+			{
+				theVirus.StartOfInfectiousness_Day = ( sender as Slider ).Value;
+
+				Update();
+			}
 		}
 	}
 }

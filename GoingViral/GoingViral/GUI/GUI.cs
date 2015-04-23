@@ -15,11 +15,26 @@ namespace GoingViral.GUI
 	/// </summary>
 	public class GUI
 	{
-		public GUI()
+		public GUI( Engine theengine)
 		{
 			mGameWindow.ModifyVirusButton.Click += ModifyVirusButton_Click;
+			mGameWindow.PauseButton.Click += PauseButton_Click;
 			mGameWindow.Closing += Exit;
 			mModifyVirusWindow.Closing += HideModifyVirusWindow;
+			TheEngine = theengine;
+		}
+
+		void PauseButton_Click( object sender, RoutedEventArgs e )
+		{
+			TheEngine.PauseSimulation = !TheEngine.PauseSimulation;
+			if( TheEngine.PauseSimulation )
+			{
+				mGameWindow.PauseButton.Content = "Unpause";
+			}
+			else
+			{
+				mGameWindow.PauseButton.Content = "Pause";
+			}
 		}
 
 		private void HideModifyVirusWindow( object sender, CancelEventArgs e )
@@ -39,25 +54,23 @@ namespace GoingViral.GUI
 				//well, we tried to close it.
 			}
 		}
-		public void Update( Engine theEngine )
+		public void Update()
 		{
 			if( mGameWindow.Visibility == Visibility.Visible )
 			{
-				mGameWindow.Update( theEngine );
-			}
-			if( mModifyVirusWindow.Visibility == Visibility.Visible )
-			{
-				mModifyVirusWindow.Update( theEngine );
+				mGameWindow.Update( TheEngine );
 			}
 		}
 
 		void ModifyVirusButton_Click( object sender, RoutedEventArgs e )
 		{
 			mModifyVirusWindow.Show();
+			mModifyVirusWindow.Update();
 		}
 
 		public GameWindow mGameWindow = new GameWindow();
 		public ModifyVirusWindow mModifyVirusWindow = new ModifyVirusWindow();
+		public Engine TheEngine;
 
 		GameMode mGameMode;
 	}

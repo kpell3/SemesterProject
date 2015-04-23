@@ -8,7 +8,7 @@ namespace GoingViral
 {
 	public class Host
 	{
-		Host( Virus virus, double NumberOfPeople )
+		public Host( Virus virus, double NumberOfPeople )
 		{
 
 			InfectedBy = virus;
@@ -20,7 +20,7 @@ namespace GoingViral
 		/// </summary>
 		public List<string> Infect( List<string> AccessibleLocations )
 		{
-			if( DaysInfected > InfectedBy.StartOfInfectiousness_Day && DaysInfected < ( InfectedBy.StartOfInfectiousness_Day + InfectedBy.InfectiousTime_Days ) )
+			if( DaysInfected > InfectedBy.StartOfInfectiousness_Day )
 			{
 				//Well, this host is infectious. Better reach out and infect some people.
 				//The first location in the list is the hosts own location. This is 95% more likely than any other location.
@@ -32,13 +32,16 @@ namespace GoingViral
 					if( Rand.NextDouble() > 0.05 )
 					{
 						locationsToInfect.Add( AccessibleLocations[0] );
+						remainingInfectiousness--;
 					}
 					//5% chance to choose a random location of all adjacent locations and infect there
 					else
 					{
 						locationsToInfect.Add( AccessibleLocations[(int)( Rand.NextDouble() * AccessibleLocations.Count )] );
+						remainingInfectiousness--;
 					}
 				}
+				return locationsToInfect;
 			}
 			//This host isn't infectious, so return a null list.
 			return new List<string>();
@@ -94,7 +97,7 @@ namespace GoingViral
 		public double NumberOfPeopleRepresentedByThisHost
 		{
 			get;
-			private set;
+			set;
 		}
 		private Random Rand = new Random();
 	}

@@ -1,52 +1,78 @@
 ﻿<Window x:Class="GoingViral.GUI.ModifyVirusWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ModifyVirusWindow" Height="342" Width="509.7">
+        Title="ModifyVirusWindow" Height="536" Width="800.7" ResizeMode="NoResize">
     <Grid>
 		<Label x:Name="SystemLabel" Content="SYSTEMS" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="IntegumentaryLabel" Content="Integumentary (Skin)" HorizontalAlignment="Left" Margin="9,55,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="CardiovascularLabel" Content="Cardiovascular (Heart)" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.017,-1.077"/>
 		<Label x:Name="SkeletalLabel" Content="Skeletal (Bones)" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="MuscularLabel" Content="Muscular (Muscles)" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="MinorLabel" Content="Minor" HorizontalAlignment="Left" Margin="135,9,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="MajorLabel" Content="Major" HorizontalAlignment="Left" Margin="215,9,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="SevereLabel" Content="Severe" HorizontalAlignment="Left" Margin="295,9,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="CatastrophicLabel" Content="Catastrophic" HorizontalAlignment="Left" Margin="375,9,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="MinorLabel" Content="Minor" HorizontalAlignment="Left" Margin="202,11,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="MajorLabel" Content="Major" HorizontalAlignment="Left" Margin="358,11,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="SevereLabel" Content="Severe" HorizontalAlignment="Left" Margin="513,11,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="CatastrophicLabel" Content="Catastrophic" HorizontalAlignment="Left" Margin="656,11,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="ImmuneLabel" Content="Immune" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.495,3.192"/>
 		<Label x:Name="RespiratoryLabel" Content="Respiratory (Lungs)" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
 		<Label x:Name="RespiratoryLabel_Copy" Content="Nervous (Brain)" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top"/>
-		<GroupBox x:Name="SymptomBox" Header="Symptoms" HorizontalAlignment="Left" Margin="136,37,0,0" VerticalAlignment="Top" Height="221" Width="345">
-			<Grid x:Name="SymptomBoxGrid" Height="228" Width="335" Margin="0">
-				<Button x:Name="IntegumentaryButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="IntegumentaryButton2" Content="Rash" HorizontalAlignment="Left" Margin="90,6,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="IntegumentaryButton3" Content="Open Sores" HorizontalAlignment="Left" Margin="170,6,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="IntegumentaryButton4" Content="Necrosis" HorizontalAlignment="Left" Margin="250,6,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="SkeletalButton1" Content="Tooth Decay" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="SkeletalButton2" Content="Osteoporosis" HorizontalAlignment="Left" Margin="90,33,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="SkeletalButton3" Content="Dryness" HorizontalAlignment="Left" Margin="170,33,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="SkeletalButton4" Content="Dryness" HorizontalAlignment="Left" Margin="250,33,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="MuscularButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="MuscularButton2" Content="Dryness" HorizontalAlignment="Left" Margin="90,60,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="MuscularButton3" Content="Dryness" HorizontalAlignment="Left" Margin="170,60,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="MuscularButton4" Content="Dryness" HorizontalAlignment="Left" Margin="250,60,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="ImmuneButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="ImmuneButton2" Content="Dryness" HorizontalAlignment="Left" Margin="90,87,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="ImmuneButton3" Content="Dryness" HorizontalAlignment="Left" Margin="170,87,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="ImmuneButton4" Content="Dryness" HorizontalAlignment="Left" Margin="250,87,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="CardiovascularButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="CardiovascularButton2" Content="Dryness" HorizontalAlignment="Left" Margin="90,114,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="CardiovascularButton3" Content="Dryness" HorizontalAlignment="Left" Margin="170,114,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="CardiovascularButton4" Content="Dryness" HorizontalAlignment="Left" Margin="250,114,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="RespiratoryButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="RespiratoryButton2" Content="Dryness" HorizontalAlignment="Left" Margin="90,141,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="RespiratoryButton3" Content="Dryness" HorizontalAlignment="Left" Margin="170,141,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="RespiratoryButton4" Content="Dryness" HorizontalAlignment="Left" Margin="250,141,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="NervousButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="NervousButton2" Content="Dryness" HorizontalAlignment="Left" Margin="90,168,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="NervousButton3" Content="Dryness" HorizontalAlignment="Left" Margin="170,168,0,0" VerticalAlignment="Top" Width="75"/>
-				<Button x:Name="NervousButton4" Content="Dryness" HorizontalAlignment="Left" Margin="250,168,0,0" VerticalAlignment="Top" Width="75"/>
+		<GroupBox x:Name="SymptomBox" Header="Symptoms" HorizontalAlignment="Left" Margin="136,37,0,0" VerticalAlignment="Top" Height="221" Width="647">
+			<Grid x:Name="SymptomBoxGrid" Height="228" Margin="0">
+				<Button x:Name="IntegumentaryButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="IntegumentaryButton2" Content="Rash" HorizontalAlignment="Left" Margin="165,6,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="IntegumentaryButton3" Content="Open Sores" HorizontalAlignment="Left" Margin="324,6,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="IntegumentaryButton4" Content="Necrosis" HorizontalAlignment="Left" Margin="479,6,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="SkeletalButton1" Content="Tooth Decay" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="SkeletalButton2" Content="Osteoporosis" HorizontalAlignment="Left" Margin="165,33,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="SkeletalButton3" Content="Dryness" HorizontalAlignment="Left" Margin="324,33,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="SkeletalButton4" Content="Dryness" HorizontalAlignment="Left" Margin="479,33,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="MuscularButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="MuscularButton2" Content="Dryness" HorizontalAlignment="Left" Margin="165,60,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="MuscularButton3" Content="Dryness" HorizontalAlignment="Left" Margin="324,60,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="MuscularButton4" Content="Dryness" HorizontalAlignment="Left" Margin="479,60,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="ImmuneButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="ImmuneButton2" Content="Dryness" HorizontalAlignment="Left" Margin="165,87,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="ImmuneButton3" Content="Dryness" HorizontalAlignment="Left" Margin="324,87,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="ImmuneButton4" Content="Dryness" HorizontalAlignment="Left" Margin="479,87,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="CardiovascularButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="CardiovascularButton2" Content="Dryness" HorizontalAlignment="Left" Margin="165,114,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="CardiovascularButton3" Content="Dryness" HorizontalAlignment="Left" Margin="324,114,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="CardiovascularButton4" Content="Dryness" HorizontalAlignment="Left" Margin="479,114,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="RespiratoryButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="RespiratoryButton2" Content="Dryness" HorizontalAlignment="Left" Margin="165,141,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="RespiratoryButton3" Content="Dryness" HorizontalAlignment="Left" Margin="324,141,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="RespiratoryButton4" Content="Dryness" HorizontalAlignment="Left" Margin="479,141,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="NervousButton1" Content="Dryness" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="NervousButton2" Content="Dryness" HorizontalAlignment="Left" Margin="165,168,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="NervousButton3" Content="Dryness" HorizontalAlignment="Left" Margin="324,168,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
+				<Button x:Name="NervousButton4" Content="Dryness" HorizontalAlignment="Left" Margin="479,168,0,0" VerticalAlignment="Top" Width="146" Click="ConditionButton_Click"/>
 			</Grid>
 		</GroupBox>
+		<Button x:Name="ReleaseVirusButton" Content="Release The Virus!" HorizontalAlignment="Left" Margin="635,465,0,0" VerticalAlignment="Top" Width="148"/>
+		<ComboBox x:Name="TransmissionMethodBox" HorizontalAlignment="Left" Margin="153,289,0,0" VerticalAlignment="Top" Width="145">
+			<Button Content="Bloodbourne"/>
+			<Button Content="SkinTransfer"/>
+			<Button Content="Waterbourne"/>
+			<Button Content="Airbourne"/>
+		</ComboBox>
+		<Slider x:Name="InfectivityBar" HorizontalAlignment="Left" Margin="153,348,0,0" VerticalAlignment="Top" Width="200" Minimum="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" ValueChanged="InfectivityBar_ValueChanged"/>
+		<Slider x:Name="TimeUntilOnset" HorizontalAlignment="Left" Margin="358,348,0,0" VerticalAlignment="Top" Width="200" Minimum="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" ValueChanged="TimeUntilOnset_ValueChanged"/>
+		<Label x:Name="TransmissionMethodLabel" Content="Transmission Method" HorizontalAlignment="Left" Margin="153,258,0,0" VerticalAlignment="Top" Width="145"/>
+		<GroupBox Header="Virus Information" HorizontalAlignment="Left" Margin="153,375,0,0" VerticalAlignment="Top" Height="85" Width="630">
+			<Grid Margin="0,0,-12,-22">
+				<TextBox x:Name="IncubationPeriodBox" HorizontalAlignment="Left" Height="23" Margin="6,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="124" IsEnabled="False"/>
+				<Label x:Name="IncubationPeriodLabel" Content="Incubation Period" HorizontalAlignment="Left" Margin="6,4,0,0" VerticalAlignment="Top" Width="124"/>
+				<TextBox x:Name="TimeToKillBox" HorizontalAlignment="Left" Height="23" Margin="264,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="124" IsEnabled="False"/>
+				<Label x:Name="SymptomOnsetLabel_Copy" Content="Mean Time To Kill" HorizontalAlignment="Left" Margin="264,4,0,0" VerticalAlignment="Top" Width="124"/>
+				<Label x:Name="SymptomOnsetLabel_Copy1" Content="Mean Time To Recover" HorizontalAlignment="Left" Margin="393,4,0,0" VerticalAlignment="Top" Width="133"/>
+				<TextBox x:Name="TimeToRecoverBox" HorizontalAlignment="Left" Height="23" Margin="393,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="133" IsEnabled="False"/>
+				<TextBox x:Name="TotalInfectiousnessBox" HorizontalAlignment="Left" Height="23" Margin="135,35,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="124" IsEnabled="False"/>
+				<Label x:Name="TotalInfectiousnessLabel" Content="Total Infectiousness" HorizontalAlignment="Left" Margin="139,5,0,0" VerticalAlignment="Top" Width="120"/>
+			</Grid>
+		</GroupBox>
+		<Label x:Name="AdditionalInfectivityLabel" Content="Additional Infectivity" HorizontalAlignment="Left" Margin="153,316,0,0" VerticalAlignment="Top" Width="200"/>
+		<Label x:Name="TimeUntilOnsetLabel" Content="Time Until Symptom Onset" HorizontalAlignment="Left" Margin="358,316,0,0" VerticalAlignment="Top" Width="200"/>
+		<Slider x:Name="StartOfInfectiousness" HorizontalAlignment="Left" Margin="583,348,0,0" VerticalAlignment="Top" Width="200" Minimum="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" ValueChanged="StartOfInfectiousness_ValueChanged"/>
+		<Label x:Name="StartOfInfectiousnessLabel" Content="Start Of Infectiousness" HorizontalAlignment="Left" Margin="583,316,0,0" VerticalAlignment="Top" Width="200"/>
 
 
 	</Grid>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GoingViral.GUI;
+using System.Threading;
 
 namespace GoingViral
 {
@@ -20,12 +21,23 @@ namespace GoingViral
 		public Engine( GameMode mMode )
 		{
 			//Initialize variables
-			TheGUI = new GUI.GUI();
+			TheGUI = new GUI.GUI( this );
 			mTheActiveVirus = new ActiveVirus();
 			TheMap = new Map();
 			TheGUI.mGameWindow.HUD.MapInfo = TheMap;
 			TheGUI.mModifyVirusWindow.theVirus = mTheActiveVirus;
 			TheGUI.mModifyVirusWindow.Populatebuttons();
+			TheGUI.mModifyVirusWindow.ReleaseVirusButton.Click += ReleaseVirusButton_Click;
+		}
+
+		/// <summary>
+		/// This button triggers the initial infection for a virus.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ReleaseVirusButton_Click( object sender, System.Windows.RoutedEventArgs e )
+		{
+			TheMap.ReleaseVirus( mTheActiveVirus as Virus );
 		}
 
 		/// <summary>
@@ -34,7 +46,9 @@ namespace GoingViral
 		/// </summary>
 		public void StartGame()
 		{
+			Thread EngineThread = new Thread( RunSimulation );
 			TheGUI.mGameWindow.Show();
+			EngineThread.Start();
 		}
 
 		/// <summary>
@@ -44,8 +58,8 @@ namespace GoingViral
 		{
 			try
 			{
-				TheMap.TakeOneTurn();
-				TheGUI.Update( this );
+				TheMap.TakeOneTurn( mTheActiveVirus as Virus );
+				TheGUI.Update();
 			}
 			catch( Exception e )
 			{
@@ -62,9 +76,14 @@ namespace GoingViral
 		{
 			//This will need to be a timed runtime loop, processing turns
 			//using the stopwatch
-			while( TheMap.TakeOneTurn() )
+			bool continueSimulation = true;
+			while( continueSimulation )
 			{
-				
+				if(!PauseSimulation)
+				{
+					continueSimulation = TheMap.TakeOneTurn( mTheActiveVirus as Virus );
+				}
+				System.Threading.Thread.Sleep( 1000 );
 			}
 		}
 
@@ -107,5 +126,7 @@ namespace GoingViral
 			get;
 			private set;
 		}
+
+		public bool PauseSimulation = true;
 	}
 }

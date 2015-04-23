@@ -15,7 +15,8 @@ namespace GoingViral
 	{
 		public ActiveVirus()
 		{
-
+			VirusProgression = Progression.Acute;
+			AdditionalInfectiousness = 1;
 		}
 		/// <summary>
 		/// Will add a new condition to the list of conditions this virus will
@@ -25,6 +26,7 @@ namespace GoingViral
 		public void AddCondition( Condition newCondition )
 		{
 			Conditions.Add( newCondition );
+			UpdateVirusInformation();
 		}
 		/// <summary>
 		/// Will remove a condition from the list of conditions this virus will
@@ -36,7 +38,22 @@ namespace GoingViral
 			if( Conditions.Contains( toRemove ) )
 			{
 				Conditions.Remove( toRemove );
+				UpdateVirusInformation();
 			}
+		}
+
+		public void UpdateVirusInformation()
+		{
+			TimeToKill = 30;
+			TimeToRecover = 1;
+			Infectiousness = 1;
+			foreach( Condition cond in Conditions )
+			{
+				TimeToKill /= cond.SurvivabilityMultiplier;
+				TimeToRecover *= cond.SurvivabilityMultiplier;
+				Infectiousness *= cond.InfectiousnessMultiplier;
+			}
+			Infectiousness *= AdditionalInfectiousness;
 		}
 		/// <summary>
 		/// Represents how long before a host will get over this virus on
@@ -59,5 +76,26 @@ namespace GoingViral
 		/// A list of conditions that this virus has
 		/// </summary>
 		private List<Condition> Conditions = new List<Condition>();
+
+		public bool HasCondition( string condition )
+		{
+			foreach( Condition cond in Conditions )
+			{
+				if( cond.Name == condition )
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/// <summary>
+		/// Represents an extra boost to infectiousness using the slider
+		/// </summary>
+		public double AdditionalInfectiousness
+		{
+			get;
+			set;
+		}
 	}
 }

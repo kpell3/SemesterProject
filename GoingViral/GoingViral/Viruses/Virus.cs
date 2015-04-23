@@ -155,22 +155,13 @@ namespace GoingViral
 			set;
 		}
 		/// <summary>
-		/// Represents the amount of time between symptom onset and full
-		/// symptoms.
-		/// </summary>
-		public double SymptomOnset_Days
-		{
-			get;
-			private set;
-		}
-		/// <summary>
 		/// Represents the day after the initial infection after which a host
 		/// becomes infectious.
 		/// </summary>
 		public double StartOfInfectiousness_Day
 		{
 			get;
-			private set;
+			set;
 		}
 		/// <summary>
 		/// Represents how long the host is infectious for. This number is
@@ -199,7 +190,7 @@ namespace GoingViral
 		public double TimeToKill
 		{
 			get;
-			private set;
+			set;
 		}
 		/// <summary>
 		/// This is how long it will take to recover from this virus
@@ -210,7 +201,7 @@ namespace GoingViral
 		public double TimeToRecover
 		{
 			get;
-			private set;
+			set;
 		}
 		/// <summary>
 		/// This is a multiplier representing how infectious this virus is.
@@ -218,7 +209,7 @@ namespace GoingViral
 		public double Infectiousness
 		{
 			get;
-			private set;
+			set;
 		}
 
 		/// <summary>
@@ -228,6 +219,23 @@ namespace GoingViral
 		{
 			get;
 			private set;
+		}
+
+		/// <summary>
+		/// Will get a condition from the list of conditions given the name.
+		/// </summary>
+		/// <param name="condition">the name of the condition to get</param>
+		/// <returns></returns>
+		public Condition GetConditionByName( string condition )
+		{
+			foreach( Condition cond in PossibleConditions )
+			{
+				if( cond.Name == condition )
+				{
+					return cond;
+				}
+			}
+			return null;
 		}
 	}
 }
