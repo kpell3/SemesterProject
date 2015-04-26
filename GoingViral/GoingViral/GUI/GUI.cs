@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace GoingViral.GUI
 {
@@ -15,13 +16,19 @@ namespace GoingViral.GUI
 	/// </summary>
 	public class GUI
 	{
-		public GUI( Engine theengine)
+		public GUI( Engine theengine )
 		{
 			mGameWindow.ModifyVirusButton.Click += ModifyVirusButton_Click;
 			mGameWindow.PauseButton.Click += PauseButton_Click;
 			mGameWindow.Closing += Exit;
+			mGameWindow.GameSpeedSlider.ValueChanged += GameSpeedSlider_ValueChanged;
 			mModifyVirusWindow.Closing += HideModifyVirusWindow;
 			TheEngine = theengine;
+		}
+
+		void GameSpeedSlider_ValueChanged( object sender, RoutedPropertyChangedEventArgs<double> e )
+		{
+			TheEngine.SleepDuration = Convert.ToInt32( ( sender as Slider ).Value );
 		}
 
 		void PauseButton_Click( object sender, RoutedEventArgs e )
@@ -61,7 +68,7 @@ namespace GoingViral.GUI
 			{
 				//This has to be invoked so that it can be done in realtime without
 				//throwing threading exceptions
-				mGameWindow.Dispatcher.Invoke( new UpdateDelegate( mGameWindow.Update ) );
+				mGameWindow.Dispatcher.Invoke( new UpdateDelegate( mGameWindow.Update ), TheEngine.PauseSimulation );
 				//mGameWindow.Update( );
 			}
 		}
@@ -78,6 +85,6 @@ namespace GoingViral.GUI
 		public Engine TheEngine;
 
 		GameMode mGameMode;
-		private delegate void UpdateDelegate();
+		private delegate void UpdateDelegate( bool pause );
 	}
 }

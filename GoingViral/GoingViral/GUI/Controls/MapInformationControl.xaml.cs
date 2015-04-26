@@ -65,6 +65,14 @@ namespace GoingViral.Controls
 					AirInfectedBox.IsChecked = theLocation.AirInfected;
 					UnderQuarentineBox.IsChecked = theLocation.IsUnderQuarentine;
 				}
+				else
+				{
+					PopulationBox.Text = "0";
+					InfectedPopulationBox.Text = "0";
+					WaterInfectedBox.IsChecked = false;
+					AirInfectedBox.IsChecked = false;
+					UnderQuarentineBox.IsChecked = false;
+				}
 			}
 		}
 	}

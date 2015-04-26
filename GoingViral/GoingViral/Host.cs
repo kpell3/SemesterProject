@@ -54,11 +54,6 @@ namespace GoingViral
 		public Status Progress()
 		{
 			DaysInfected++;
-			//TODO: Add some Random
-			if( DaysInfected > InfectedBy.TimeToRecover )
-			{
-				return Status.Uninfected;
-			}
 			if( DaysInfected > InfectedBy.IncubationPeriod_Days )
 			{
 				//TODO: Add some Random

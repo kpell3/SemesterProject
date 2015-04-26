@@ -239,5 +239,7 @@
 		<Button x:Name="ModifyVirusButton"  Content="Modify Virus" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="75" MinHeight="75" Height="127" Width="145"/>
 		<Controls:MapInformationControl x:Name="HUD" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Height="601"/>
 		<Button x:Name="PauseButton" Content="Unpause" HorizontalAlignment="Right" Margin="0,0,0,132" VerticalAlignment="Bottom" Width="145" Height="45"/>
+		<Slider x:Name="GameSpeedSlider" HorizontalAlignment="Left" Margin="1271,534,0,0" VerticalAlignment="Top" Width="135" Minimum="1000" Maximum="10000" Value="1000" IsDirectionReversed="True"/>
+		<Label Content="Game Speed" HorizontalAlignment="Left" Margin="1271,506,0,0" VerticalAlignment="Top" Width="135"/>
 	</Grid>
 </Window>

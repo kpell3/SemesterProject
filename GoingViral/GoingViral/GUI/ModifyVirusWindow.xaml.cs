@@ -59,6 +59,7 @@ namespace GoingViral.GUI
 				}
 			}
 		}
+
 		public void Update()
 		{
 			//Update this window with values from the active virus
@@ -67,6 +68,7 @@ namespace GoingViral.GUI
 			TimeToRecoverBox.Text = theVirus.TimeToRecover.ToString();
 			TotalInfectiousnessBox.Text = theVirus.Infectiousness.ToString();
 		}
+
 		public ActiveVirus theVirus
 		{
 			get;
@@ -96,7 +98,7 @@ namespace GoingViral.GUI
 		{
 			if( theVirus != null )
 			{
-				theVirus.AdditionalInfectiousness = (sender as Slider).Value;
+				theVirus.AdditionalInfectiousness = ( sender as Slider ).Value;
 				theVirus.UpdateVirusInformation();
 				Update();
 			}

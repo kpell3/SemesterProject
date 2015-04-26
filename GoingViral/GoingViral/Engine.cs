@@ -71,7 +71,7 @@ namespace GoingViral
 		}
 		/// <summary>
 		/// Will run the simulation in a realtime loop based upon
-		/// the NumberOfTurnsPerSecond.
+		/// the SleepDuration.
 		/// </summary>
 		public void RunSimulation()
 		{
@@ -79,11 +79,12 @@ namespace GoingViral
 			//using the stopwatch
 			while( ContinueSimulation )
 			{
-				if(!PauseSimulation)
+				if( !PauseSimulation )
 				{
 					ContinueSimulation = TheMap.TakeOneTurn( mTheActiveVirus as Virus );
-					TheGUI.Update();
 				}
+				TheGUI.Update();
+				System.Threading.Thread.Sleep( SleepDuration );
 			}
 		}
 
@@ -127,8 +128,19 @@ namespace GoingViral
 			private set;
 		}
 
+		/// <summary>
+		/// Represents whether or not the simulation should currently be paused.
+		/// </summary>
 		public bool PauseSimulation = true;
+
+		/// <summary>
+		/// Represents whether or not the simulation should be exited.
+		/// </summary>
 		public bool ContinueSimulation = true;
+
+		/// <summary>
+		/// Represents how long the sleep should be between each RTI.
+		/// </summary>
 		public int SleepDuration = 1000;
 	}
 }

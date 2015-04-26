@@ -58,7 +58,7 @@ namespace GoingViral.GUI
 			NewZealandButton.MouseEnter += HUD.Button_MouseMove;
 		}
 
-		public void Update()
+		public void Update( bool pause )
 		{
 			HUD.Update();
 			for( int i = 0; i < VisualTreeHelper.GetChildrenCount( TheGrid ); ++i )
@@ -68,6 +68,14 @@ namespace GoingViral.GUI
 				{
 					UpdateButtonImage( childVisual as Button );
 				}
+			}
+			if( pause )
+			{
+				PauseButton.Content = "Unpause";
+			}
+			else
+			{
+				PauseButton.Content = "Pause";
 			}
 			//Update the window with values from the engine.
 		}
@@ -84,6 +92,11 @@ namespace GoingViral.GUI
 		{
 			get;
 			set;
+		}
+
+		private void GameSpeedSlider_ValueChanged( object sender, RoutedPropertyChangedEventArgs<double> e )
+		{
+			
 		}
 	}
 }
