@@ -46,6 +46,7 @@ namespace GoingViral.GUI
 		{
 			try
 			{
+				TheEngine.ContinueSimulation = false;
 				mModifyVirusWindow.Closing -= HideModifyVirusWindow;
 				mModifyVirusWindow.Close();
 			}
@@ -58,13 +59,17 @@ namespace GoingViral.GUI
 		{
 			if( mGameWindow.Visibility == Visibility.Visible )
 			{
-				mGameWindow.Update( TheEngine );
+				//This has to be invoked so that it can be done in realtime without
+				//throwing threading exceptions
+				mGameWindow.Dispatcher.Invoke( new UpdateDelegate( mGameWindow.Update ) );
+				//mGameWindow.Update( );
 			}
 		}
 
 		void ModifyVirusButton_Click( object sender, RoutedEventArgs e )
 		{
 			mModifyVirusWindow.Show();
+			TheEngine.PauseSimulation = true;
 			mModifyVirusWindow.Update();
 		}
 
@@ -73,5 +78,6 @@ namespace GoingViral.GUI
 		public Engine TheEngine;
 
 		GameMode mGameMode;
+		private delegate void UpdateDelegate();
 	}
 }

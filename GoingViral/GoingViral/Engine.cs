@@ -24,6 +24,7 @@ namespace GoingViral
 			TheGUI = new GUI.GUI( this );
 			mTheActiveVirus = new ActiveVirus();
 			TheMap = new Map();
+			TheGUI.mGameWindow.MapInfo = TheMap;
 			TheGUI.mGameWindow.HUD.MapInfo = TheMap;
 			TheGUI.mModifyVirusWindow.theVirus = mTheActiveVirus;
 			TheGUI.mModifyVirusWindow.Populatebuttons();
@@ -76,14 +77,13 @@ namespace GoingViral
 		{
 			//This will need to be a timed runtime loop, processing turns
 			//using the stopwatch
-			bool continueSimulation = true;
-			while( continueSimulation )
+			while( ContinueSimulation )
 			{
 				if(!PauseSimulation)
 				{
-					continueSimulation = TheMap.TakeOneTurn( mTheActiveVirus as Virus );
+					ContinueSimulation = TheMap.TakeOneTurn( mTheActiveVirus as Virus );
+					TheGUI.Update();
 				}
-				System.Threading.Thread.Sleep( 1000 );
 			}
 		}
 
@@ -128,5 +128,7 @@ namespace GoingViral
 		}
 
 		public bool PauseSimulation = true;
+		public bool ContinueSimulation = true;
+		public int SleepDuration = 1000;
 	}
 }

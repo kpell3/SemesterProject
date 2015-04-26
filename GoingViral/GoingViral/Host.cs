@@ -62,9 +62,14 @@ namespace GoingViral
 			if( DaysInfected > InfectedBy.IncubationPeriod_Days )
 			{
 				//TODO: Add some Random
-				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToKill )
+				Random rand = new Random();
+				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToKill + ( ( rand.NextDouble() - 0.5 ) * InfectedBy.TimeToKill ) )
 				{
 					return Status.Dead;
+				}
+				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToRecover + ( ( rand.NextDouble() - 0.5 ) * InfectedBy.TimeToRecover ) )
+				{
+					return Status.Uninfected;
 				}
 			}
 			return Status.StillInfected;

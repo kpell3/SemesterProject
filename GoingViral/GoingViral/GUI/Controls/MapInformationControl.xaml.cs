@@ -40,9 +40,18 @@ namespace GoingViral.Controls
 			{
 				string SenderName = ( sender as Button ).Name;
 				SenderName = SenderName.Substring( 0, SenderName.IndexOf( "Button" ) );
-				Location theLocation = MapInfo.GetLocationByName( SenderName );
+				RegionNameBox.Text = SenderName;
+				Update();
+			}
+		}
+		public void Update()
+		{
+			if( MapInfo != null )//Only process if map object is not null
+			{
+				Location theLocation = MapInfo.GetLocationByName( RegionNameBox.Text );
 				if( theLocation != null )
 				{
+					RegionNameBox.Text = theLocation.Name;
 					PopulationBox.Text = ( theLocation.Population ).ToString();
 					if( theLocation.InfectedHosts.Count > 0 )
 					{

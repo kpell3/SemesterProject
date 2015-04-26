@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:GoingViral.Controls" mc:Ignorable="d" x:Class="GoingViral.GUI.GameWindow"
         Title="GoingViral" Height="768" Width="1424">
-	<Grid>
+	<Grid x:Name="TheGrid">
 		<Image x:Name="WorldMapImage" Source ="Images\WorldMapFull.jpg" Margin="0,0,150,0" IsEnabled="False" Stretch="UniformToFill"/>
 		<Button x:Name="WestUSButton" MinHeight="30" MinWidth="30" Margin="223,324,1163,384">
 			<Button.Template>
@@ -236,7 +236,7 @@
 				</ControlTemplate>
 			</Button.Template>
 		</Button>
-		<Button x:Name="ModifyVirusButton"  Content="Modify Virus" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="75" MinHeight="75"  Click="ModifyVirusButton_Click" Height="127" Width="145"/>
+		<Button x:Name="ModifyVirusButton"  Content="Modify Virus" HorizontalAlignment="Right" VerticalAlignment="Bottom" MinWidth="75" MinHeight="75" Height="127" Width="145"/>
 		<Controls:MapInformationControl x:Name="HUD" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top" Height="601"/>
 		<Button x:Name="PauseButton" Content="Unpause" HorizontalAlignment="Right" Margin="0,0,0,132" VerticalAlignment="Bottom" Width="145" Height="45"/>
 	</Grid>

@@ -58,19 +58,32 @@ namespace GoingViral.GUI
 			NewZealandButton.MouseEnter += HUD.Button_MouseMove;
 		}
 
-		private void ModifyVirusButton_Click( object sender, RoutedEventArgs e )
+		public void Update()
 		{
-
-		}
-
-		public void Update( Engine theEngine )
-		{
+			HUD.Update();
+			for( int i = 0; i < VisualTreeHelper.GetChildrenCount( TheGrid ); ++i )
+			{
+				Visual childVisual = (Visual)VisualTreeHelper.GetChild( TheGrid, i );
+				if( childVisual is Button )
+				{
+					UpdateButtonImage( childVisual as Button );
+				}
+			}
 			//Update the window with values from the engine.
 		}
 
-		private void RegionButton_Click( object sender, RoutedEventArgs e )
+		private void UpdateButtonImage( Button button )
 		{
+			Location loc = MapInfo.GetLocationByName( button.Name.Substring( 0, button.Name.IndexOf( "Button" ) ) );
+			//TODO: Tom, please finish this out.
+			//Change the button image
+			//the population of the location should be loc.Population
+		}
 
+		public Map MapInfo
+		{
+			get;
+			set;
 		}
 	}
 }

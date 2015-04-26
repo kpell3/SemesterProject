@@ -25,6 +25,7 @@ namespace GoingViral
 			//Run through the InfectedHosts list.
 			List<string> InfectionsToTrigger = new List<string>();
 			List<Host> DeadHosts = new List<Host>();
+			List<Host> CuredHosts = new List<Host>();
 			foreach( Host thisHost in InfectedHosts )
 			{
 				//A virus can always spread locally.
@@ -48,11 +49,19 @@ namespace GoingViral
 					InfectableLocations.AddRange( LocationsAdjacentByAir );
 				}
 				InfectionsToTrigger.AddRange( thisHost.Infect( InfectableLocations ) );
-				if( thisHost.Progress() == Status.Dead )
+				//This will progress the virus and cause then store the status of the host
+				Status EndStatus = thisHost.Progress();
+				if( EndStatus == Status.Dead )
 				{
 					DeadHosts.Add( thisHost );
 				}
+				else if( EndStatus == Status.Uninfected )
+				{
+					CuredHosts.Add( thisHost );
+				}
 			}
+			//Time to modify the infected hosts list. This cannot be done in the first foreach because of
+			//C# rules about modifying a list you are recursing over.
 			foreach( Host deadhost in DeadHosts )
 			{
 				Population -= deadhost.NumberOfPeopleRepresentedByThisHost;
@@ -60,13 +69,17 @@ namespace GoingViral
 					Population = 0;
 				InfectedHosts.Remove( deadhost );
 			}
+			foreach( Host curedhost in CuredHosts )
+			{
+				InfectedHosts.Remove( curedhost );
+			}
 			return InfectionsToTrigger;
 			//Determine if the Water/Air got infected.
 			//Determine if the area has been quarentined
 
 		}
 		/// <summary>
-		/// This will create a newly infected host in this region, and progress the 
+		/// This will create a newly infected host in this region
 		/// </summary>
 		public void InfectNewHost( Virus theVirus )
 		{
@@ -97,15 +110,6 @@ namespace GoingViral
 		/// The name of the location to be displayed on the map
 		/// </summary>
 		public string Name
-		{
-			get;
-			set;
-		}
-
-		/// <summary>
-		/// Represents the location as it appears on the GUI.
-		/// </summary>
-		public Tuple<int, int> Coordinates
 		{
 			get;
 			set;
