@@ -48,11 +48,11 @@
 			</Grid>
 		</GroupBox>
 		<Button x:Name="ReleaseVirusButton" Content="Release The Virus!" HorizontalAlignment="Left" Margin="635,465,0,0" VerticalAlignment="Top" Width="148"/>
-		<ComboBox x:Name="TransmissionMethodBox" HorizontalAlignment="Left" Margin="153,289,0,0" VerticalAlignment="Top" Width="145">
-			<Button Content="Bloodbourne"/>
-			<Button Content="SkinTransfer"/>
-			<Button Content="Waterbourne"/>
-			<Button Content="Airbourne"/>
+		<ComboBox x:Name="TransmissionMethodBox" HorizontalAlignment="Left" Margin="153,289,0,0" VerticalAlignment="Top" Width="169">
+			<Button x:Name="BloodbourneButton" Content="Bloodbourne" Click="BloodbourneButton_Click"/>
+			<Button x:Name="SkinTransferButton" Content="SkinTransfer" Click="SkinTransferButton_Click"/>
+			<Button x:Name="WaterbourneButton" Content="Waterbourne" Click="WaterbourneButton_Click"/>
+			<Button x:Name="AirbourneButton" Content="Airbourne" Click="AirbourneButton_Click"/>
 		</ComboBox>
 		<Slider x:Name="InfectivityBar" HorizontalAlignment="Left" Margin="153,348,0,0" VerticalAlignment="Top" Width="200" Minimum="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" ValueChanged="InfectivityBar_ValueChanged"/>
 		<Slider x:Name="TimeUntilOnset" HorizontalAlignment="Left" Margin="358,348,0,0" VerticalAlignment="Top" Width="200" Minimum="1" TickPlacement="TopLeft" IsSnapToTickEnabled="True" ValueChanged="TimeUntilOnset_ValueChanged"/>

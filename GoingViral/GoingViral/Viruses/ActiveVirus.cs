@@ -17,6 +17,9 @@ namespace GoingViral
 		{
 			VirusProgression = Progression.Acute;
 			AdditionalInfectiousness = 1;
+			TimeToKill = 30;
+			TimeToRecover = 3;
+			Infectiousness = 1;
 		}
 		/// <summary>
 		/// Will add a new condition to the list of conditions this virus will
@@ -45,7 +48,7 @@ namespace GoingViral
 		public void UpdateVirusInformation()
 		{
 			TimeToKill = 30;
-			TimeToRecover = 1;
+			TimeToRecover = 3;
 			Infectiousness = 1;
 			foreach( Condition cond in Conditions )
 			{

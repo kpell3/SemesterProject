@@ -122,5 +122,29 @@ namespace GoingViral.GUI
 				Update();
 			}
 		}
+
+		private void BloodbourneButton_Click( object sender, RoutedEventArgs e )
+		{
+			theVirus.VirusTransmissionMethod = TransmissionMethod.Bloodbourne;
+			TransmissionMethodBox.Text = "Bloodbourne";
+		}
+
+		private void SkinTransferButton_Click( object sender, RoutedEventArgs e )
+		{
+			theVirus.VirusTransmissionMethod = TransmissionMethod.SkinTransfer;
+			TransmissionMethodBox.Text = "SkinTransfer";
+		}
+
+		private void WaterbourneButton_Click( object sender, RoutedEventArgs e )
+		{
+			theVirus.VirusTransmissionMethod = TransmissionMethod.Waterbourne;
+			TransmissionMethodBox.Text = "Waterbourne";
+		}
+
+		private void AirbourneButton_Click( object sender, RoutedEventArgs e )
+		{
+			theVirus.VirusTransmissionMethod = TransmissionMethod.Airbourne;
+			TransmissionMethodBox.Text = "Airbourne";
+		}
 	}
 }
