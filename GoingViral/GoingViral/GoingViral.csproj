@@ -64,6 +64,7 @@
     <Compile Include="GUI\ModifyVirusWindow.xaml.cs">
       <DependentUpon>ModifyVirusWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LocationCollection.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Viruses\ActiveVirus.cs" />
     <Compile Include="Viruses\Traits\Condition.cs" />
@@ -135,6 +136,9 @@
   <ItemGroup>
     <Resource Include="GUI\Images\RewriteWhenSoberLogo.gif" />
     <Resource Include="GUI\Images\ViralBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="GUI\Images\skull_and_crossbones.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

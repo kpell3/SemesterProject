@@ -19,10 +19,7 @@ namespace GoingViral
 		public Map()
 		{
 			//Initialize the map
-			theMap.Add( new Location( "WestUS", 100000.0 ) );
-			theMap.Add( new Location( "EastUS", 100000.0 ) );
-			theMap.Add( new Location( "SouthCanada", 100000.0 ) );
-
+            theMap.Load();
 			theMap[0].LocationsAdjacentByLand.Add( "EastUS" );
 			theMap[0].LocationsAdjacentByLand.Add( "SouthCanada" );
 
@@ -68,20 +65,13 @@ namespace GoingViral
 
 		public Location GetLocationByName( string name )
 		{
-			foreach( Location loc in theMap )
-			{
-				if( loc.Name == name )
-				{
-					return loc;
-				}
-			}
-			return null;
+            return theMap.FirstOrDefault(l => l.Name == name);
 		}
 
 		/// <summary>
 		/// A List of locations that actually makes up the map itself
 		/// </summary>
-		public List<Location> theMap = new List<Location>();
+		public LocationCollection theMap = new LocationCollection();
 
 		public void ReleaseVirus( Virus theVirus )
 		{

@@ -15,88 +15,86 @@ using System.Windows.Shapes;
 
 namespace GoingViral.GUI
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class GameWindow : Window
-	{
-		public GameWindow()
-		{
-			InitializeComponent();
-			WestUSButton.MouseEnter += HUD.Button_MouseMove;
-			EastUSButton.MouseEnter += HUD.Button_MouseMove;
-			SouthCanadaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthCanadaAndAlaskaButton.MouseEnter += HUD.Button_MouseMove;
-			MexicoAndCentralAmericaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthEastUSAndEastCanadaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthWestSouthAmericaButton.MouseEnter += HUD.Button_MouseMove;
-			EastSouthAmericaButton.MouseEnter += HUD.Button_MouseMove;
-			SouthSouthAmericaButton.MouseEnter += HUD.Button_MouseMove;
-			WestAfricaButton.MouseEnter += HUD.Button_MouseMove;
-			EastAfricaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthAfricaButton.MouseEnter += HUD.Button_MouseMove;
-			SouthAfricaButton.MouseEnter += HUD.Button_MouseMove;
-			WestEuropeButton.MouseEnter += HUD.Button_MouseMove;
-			NorthEuropeButton.MouseEnter += HUD.Button_MouseMove;
-			EastEuropeButton.MouseEnter += HUD.Button_MouseMove;
-			SouthEuropeButton.MouseEnter += HUD.Button_MouseMove;
-			GreenlandButton.MouseEnter += HUD.Button_MouseMove;
-			WestRussiaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthRussiaButton.MouseEnter += HUD.Button_MouseMove;
-			SouthRussiaButton.MouseEnter += HUD.Button_MouseMove;
-			EastRussiaButton.MouseEnter += HUD.Button_MouseMove;
-			SouthMiddleEastButton.MouseEnter += HUD.Button_MouseMove;
-			NorthEastChinaButton.MouseEnter += HUD.Button_MouseMove;
-			SouthChinaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthWestChinaButton.MouseEnter += HUD.Button_MouseMove;
-			IndiaButton.MouseEnter += HUD.Button_MouseMove;
-			NorthMiddleEastButton.MouseEnter += HUD.Button_MouseMove;
-			JapanButton.MouseEnter += HUD.Button_MouseMove;
-			WestIndonesiaButton.MouseEnter += HUD.Button_MouseMove;
-			EastIndonesiaButton.MouseEnter += HUD.Button_MouseMove;
-			AustraliaButton.MouseEnter += HUD.Button_MouseMove;
-			NewZealandButton.MouseEnter += HUD.Button_MouseMove;
-		}
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class GameWindow : Window
+    {
+        public GameWindow()
+        {
+            InitializeComponent();
 
-		public void Update( bool pause )
-		{
-			HUD.Update();
-			for( int i = 0; i < VisualTreeHelper.GetChildrenCount( TheGrid ); ++i )
-			{
-				Visual childVisual = (Visual)VisualTreeHelper.GetChild( TheGrid, i );
-				if( childVisual is Button )
-				{
-					UpdateButtonImage( childVisual as Button );
-				}
-			}
-			if( pause )
-			{
-				PauseButton.Content = "Unpause";
-			}
-			else
-			{
-				PauseButton.Content = "Pause";
-			}
-			//Update the window with values from the engine.
-		}
+            // setup the buttons within the canvas
+            EnumControls(MapCanvas);
+        }
 
-		private void UpdateButtonImage( Button button )
-		{
-			Location loc = MapInfo.GetLocationByName( button.Name.Substring( 0, button.Name.IndexOf( "Button" ) ) );
-			//TODO: Tom, please finish this out.
-			//Change the button image
-			//the population of the location should be loc.Population
-		}
+        public void EnumControls(Visual myControl)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(myControl); i++)
+            {
+                // Retrieve child visual at specified index value.
+                Visual childVisual = (Visual)VisualTreeHelper.GetChild(myControl, i);
 
-		public Map MapInfo
-		{
-			get;
-			set;
-		}
+                if (childVisual is Button)
+                {
+                    ((Button)childVisual).MouseEnter += HUD.Button_MouseMove;
+                }
 
-		private void GameSpeedSlider_ValueChanged( object sender, RoutedPropertyChangedEventArgs<double> e )
-		{
-			
-		}
-	}
+                // Enumerate children of the child visual object.
+                EnumControls(childVisual);
+            }
+        }
+
+        public void Update(bool pause)
+        {
+            HUD.Update();
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(TheGrid); ++i)
+            {
+                Visual childVisual = (Visual)VisualTreeHelper.GetChild(TheGrid, i);
+                if (childVisual is Button)
+                {
+                    UpdateButtonImage(childVisual as Button);
+                }
+            }
+
+            if (pause)
+            {
+                PauseButton.Content = "Unpause";
+            }
+            else
+            {
+                PauseButton.Content = "Pause";
+            }
+            //Update the window with values from the engine.
+        }
+
+        private void UpdateButtonImage(Button button)
+        {
+            Location loc = MapInfo.GetLocationByName(button.Name.Substring(0, button.Name.IndexOf("Button")));
+
+            if (loc != null && loc.Population <= 0)
+            {
+                var buttonTemplate = button.FindResource("PopulationCenterButton") as DataTemplate;
+                var imageControl = buttonTemplate.LoadContent() as Image;
+
+                BitmapImage skullImage = new BitmapImage();
+                skullImage.BeginInit();
+                skullImage.UriSource = new Uri(@"Images\skull_and_crossbones.jpg", UriKind.Relative);
+                skullImage.EndInit();
+
+                imageControl.Source = skullImage;
+            }
+        }
+
+        public Map MapInfo
+        {
+            get;
+            set;
+        }
+
+        private void GameSpeedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+    }
 }
