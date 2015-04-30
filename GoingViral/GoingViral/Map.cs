@@ -20,14 +20,6 @@ namespace GoingViral
 		{
 			//Initialize the map
             theMap.Load();
-			theMap[0].LocationsAdjacentByLand.Add( "EastUS" );
-			theMap[0].LocationsAdjacentByLand.Add( "SouthCanada" );
-
-			theMap[1].LocationsAdjacentByLand.Add( "WestUS" );
-			theMap[1].LocationsAdjacentByLand.Add( "SouthCanada" );
-
-			theMap[2].LocationsAdjacentByLand.Add( "EastUS" );
-			theMap[2].LocationsAdjacentByLand.Add( "WestUS" );
 		}
 		/// <summary>
 		/// The execution of a single turn happens here.
