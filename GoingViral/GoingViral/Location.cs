@@ -99,23 +99,23 @@ namespace GoingViral
                         string[] regionNames1 = rawInfos[i].Split(new string[] { "," }, StringSplitOptions.None);
                         foreach (string region in regionNames1)
                         {
-                            LocationsAdjacentByLand.Add(region);
+                            LocationsAdjacentByLand.Add(region.Replace(" ", string.Empty));
                         }
                         break;
 
-                    case 4: // locations adjacent by land
+                    case 4: // locations adjacent by air
                         string[] regionNames2 = rawInfos[i].Split(new string[] { "," }, StringSplitOptions.None);
                         foreach (string region in regionNames2)
                         {
-                            LocationsAdjacentByAir.Add(region);
+                            LocationsAdjacentByAir.Add(region.Replace(" ", string.Empty));
                         }
                         break;
 
-                    case 5: // locations adjacent by land
+                    case 5: // locations adjacent by sea
                         string[] regionNames3 = rawInfos[i].Split(new string[] { "," }, StringSplitOptions.None);
                         foreach (string region in regionNames3)
                         {
-                            LocationsAdjacentBySea.Add(region);
+                            LocationsAdjacentBySea.Add(region.Replace(" ", string.Empty));
                         }
                         break;
 
