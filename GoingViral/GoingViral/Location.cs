@@ -95,6 +95,30 @@ namespace GoingViral
                         Coordinates = new Tuple<int, int>(x, y);
                         break;
 
+                    case 3: // locations adjacent by land
+                        string[] regionNames1 = rawInfos[i].Split(new string[] { "," }, StringSplitOptions.None);
+                        foreach (string region in regionNames1)
+                        {
+                            LocationsAdjacentByLand.Add(region);
+                        }
+                        break;
+
+                    case 4: // locations adjacent by land
+                        string[] regionNames2 = rawInfos[i].Split(new string[] { "," }, StringSplitOptions.None);
+                        foreach (string region in regionNames2)
+                        {
+                            LocationsAdjacentByAir.Add(region);
+                        }
+                        break;
+
+                    case 5: // locations adjacent by land
+                        string[] regionNames3 = rawInfos[i].Split(new string[] { "," }, StringSplitOptions.None);
+                        foreach (string region in regionNames3)
+                        {
+                            LocationsAdjacentBySea.Add(region);
+                        }
+                        break;
+
                 }
             }
         }
