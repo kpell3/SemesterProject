@@ -67,7 +67,7 @@ namespace GoingViral
         public bool IsUnderQuarentine = false;
 
         /// <summary>
-        /// Whether or not the air in this area has been infected
+        /// Whether or not the air in this area has been infected 
         /// </summary>
         public bool AirInfected = false;
 
