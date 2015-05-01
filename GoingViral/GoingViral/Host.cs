@@ -25,7 +25,7 @@ namespace GoingViral
 				//Well, this host is infectious. Better reach out and infect some people.
 				//The first location in the list is the hosts own location. This is 95% more likely than any other location.
 				List<string> locationsToInfect = new List<string>();
-				double remainingInfectiousness = ( InfectedBy.Infectiousness * NumberOfPeopleRepresentedByThisHost ) - Rand.NextDouble();
+				double remainingInfectiousness = ( InfectedBy.Infectiousness ) - Rand.NextDouble();
 				while( remainingInfectiousness > 0 )
 				{
 					//95% chance to infect the local area.

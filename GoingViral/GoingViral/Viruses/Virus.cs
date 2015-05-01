@@ -119,6 +119,8 @@ namespace GoingViral
 			PossibleConditions.Add( Seizures );
 			PossibleConditions.Add( Paralysis );
 			PossibleConditions.Add( ALS );
+
+			VirusTransmissionMethod = TransmissionMethod.Bloodbourne;
 		}
 		/// <summary>
 		/// The Strain of this virus. In a multi-player game, represents

@@ -39,6 +39,7 @@ namespace GoingViral
 					if( loc2.Name.Equals( loc1, StringComparison.Ordinal ) )
 					{
 						loc2.InfectNewHost( theVirus );
+						break;
 					}
 				}
 			}
