@@ -11,7 +11,7 @@ namespace GoingViral
         private static List<string> _rawLocationInfo;
         
 
-        static LocationCollection()
+        static LocationCollection() 
         {
             _rawLocationInfo = new List<string>();
 
