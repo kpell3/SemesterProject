@@ -38,7 +38,17 @@ namespace GoingViral
 				{
 					if( loc2.Name.Equals( loc1, StringComparison.Ordinal ) )
 					{
-						loc2.InfectNewHost( theVirus );
+						if( loc2.InfectedHosts.Count > 0 )
+						{
+							if( NumberGenerator.NextDouble() > ( ( loc2.InfectedHosts[0].NumberOfPeopleRepresentedByThisHost * loc2.InfectedHosts.Count ) / loc2.Population ) )
+							{
+								loc2.InfectNewHost( theVirus );
+							}
+						}
+						else
+						{
+							loc2.InfectNewHost( theVirus );
+						}
 						break;
 					}
 				}
@@ -47,7 +57,7 @@ namespace GoingViral
 			//and that someone is infected somewhere.
 			foreach( Location loc in theMap )
 			{
-				if( loc.Population != 0 )
+				if( loc.Population >= 0 )
 				{
 					return true;
 				}
@@ -72,6 +82,8 @@ namespace GoingViral
 			int i = random.Next( 0, theMap.Count );
 			theMap[i].InfectNewHost( theVirus );
 		}
+
+		private Random NumberGenerator = new Random();
 	}
 }
 

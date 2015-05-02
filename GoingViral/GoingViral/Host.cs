@@ -8,11 +8,13 @@ namespace GoingViral
 {
 	public class Host
 	{
-		public Host( Virus virus, double NumberOfPeople )
+		public Host( Virus virus, double NumberOfPeople, int randomNumberSeed, double daysInfected = 0 )
 		{
 
 			InfectedBy = virus;
 			NumberOfPeopleRepresentedByThisHost = NumberOfPeople;
+			Rand = new Random( randomNumberSeed );
+			DaysInfected = daysInfected;
 		}
 
 		/// <summary>
@@ -29,15 +31,15 @@ namespace GoingViral
 				while( remainingInfectiousness > 0 )
 				{
 					//95% chance to infect the local area.
-					if( Rand.NextDouble() > 0.05 )
+					if( Rand.NextDouble() > 0.005 )
 					{
-						locationsToInfect.Add( AccessibleLocations[0] );
+						locationsToInfect.Add( AccessibleLocations[ 0 ] );
 						remainingInfectiousness--;
 					}
 					//5% chance to choose a random location of all adjacent locations and infect there
 					else
 					{
-						locationsToInfect.Add( AccessibleLocations[(int)( Rand.NextDouble() * AccessibleLocations.Count )] );
+						locationsToInfect.Add( AccessibleLocations[ ( int )( Rand.NextDouble() * AccessibleLocations.Count ) ] );
 						remainingInfectiousness--;
 					}
 				}
@@ -56,13 +58,11 @@ namespace GoingViral
 			DaysInfected++;
 			if( DaysInfected > InfectedBy.IncubationPeriod_Days )
 			{
-				//TODO: Add some Random
-				Random rand = new Random();
-				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToKill + ( ( rand.NextDouble() - 0.5 ) * InfectedBy.TimeToKill ) )
+				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToKill + ( ( Rand.NextDouble() - 0.5 ) * InfectedBy.TimeToKill ) )
 				{
 					return Status.Dead;
 				}
-				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToRecover + ( ( rand.NextDouble() - 0.5 ) * InfectedBy.TimeToRecover ) )
+				if( ( DaysInfected - InfectedBy.IncubationPeriod_Days ) > InfectedBy.TimeToRecover + ( ( Rand.NextDouble() - 0.5 ) * InfectedBy.TimeToRecover ) )
 				{
 					return Status.Uninfected;
 				}
@@ -99,6 +99,6 @@ namespace GoingViral
 			get;
 			set;
 		}
-		private Random Rand = new Random();
+		private Random Rand;
 	}
 }

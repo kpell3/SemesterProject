@@ -121,6 +121,7 @@ namespace GoingViral
 			PossibleConditions.Add( ALS );
 
 			VirusTransmissionMethod = TransmissionMethod.Bloodbourne;
+			IncubationPeriod_Days = 1;
 		}
 		/// <summary>
 		/// The Strain of this virus. In a multi-player game, represents
