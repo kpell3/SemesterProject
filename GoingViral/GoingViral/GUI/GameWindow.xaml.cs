@@ -45,7 +45,7 @@ namespace GoingViral.GUI
 			}
 		}
 
-		public void Update( bool pause )
+		public void Update( bool pause, int DayNumber )
 		{
 			HUD.Update();
 			for( int i = 0; i < VisualTreeHelper.GetChildrenCount( MapCanvas ); ++i )
@@ -65,6 +65,7 @@ namespace GoingViral.GUI
 			{
 				PauseButton.Content = "Pause";
 			}
+			DayNumberLabel.Content = "Day " + DayNumber.ToString();
 			//Update the window with values from the engine.
 		}
 

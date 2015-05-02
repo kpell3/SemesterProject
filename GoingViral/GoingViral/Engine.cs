@@ -83,6 +83,7 @@ namespace GoingViral
                 if (!PauseSimulation)
                 {
                     ContinueSimulation = TheMap.TakeOneTurn(mTheActiveVirus as Virus);
+					DayNumber++;
                 }
                 TheGUI.Update();
                 System.Threading.Thread.Sleep(SleepDuration);
@@ -143,5 +144,10 @@ namespace GoingViral
         /// Represents how long the sleep should be between each RTI.
         /// </summary>
         public int SleepDuration = 1000;
+
+		/// <summary>
+		/// Represents the number of days that has passed since the game started.
+		/// </summary>
+		public int DayNumber = 0;
     }
 }

@@ -77,7 +77,10 @@ namespace GoingViral.GUI
             {
                 //This has to be invoked so that it can be done in realtime without
                 //throwing threading exceptions
-                mGameWindow.Dispatcher.Invoke(new UpdateDelegate(mGameWindow.Update), TheEngine.PauseSimulation);
+				object[] args = new object[ 2 ];
+				args[ 0 ] = TheEngine.PauseSimulation;
+				args[ 1 ] = TheEngine.DayNumber;
+                mGameWindow.Dispatcher.Invoke(new UpdateDelegate(mGameWindow.Update), args );
                 //mGameWindow.Update( );
             }
         }
@@ -89,7 +92,7 @@ namespace GoingViral.GUI
             mModifyVirusWindow.Update();
         }
 
-        private delegate void UpdateDelegate(bool pause);
+        private delegate void UpdateDelegate(bool pause, int DayNumber);
 
     }
 }

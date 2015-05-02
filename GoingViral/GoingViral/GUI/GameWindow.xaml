@@ -74,10 +74,11 @@
         <Controls:MapInformationControl Grid.Column="1" Grid.Row="0" x:Name="HUD" Margin="3" Height="250" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Label Content="Game Speed" />
-            <Slider x:Name="GameSpeedSlider"  Width="135" Minimum="1000" Maximum="10000" Value="1000" IsDirectionReversed="True"/>
-            <Button x:Name="ModifyVirusButton" Content="Modify Virus" Margin="0,3" MinWidth="75" MinHeight="75" Height="127" Width="145"/>
-            <Button x:Name="PauseButton" Content="Unpause"  Margin="0,3" Width="145" Height="45"/>
-        </StackPanel>
+			<Label x:Name="DayNumberLabel" Content="Day 1" />
+			<Label Content="Game Speed" />
+			<Slider x:Name="GameSpeedSlider"  Width="135" Minimum="1000" Maximum="10000" Value="1000" IsDirectionReversed="True"/>
+			<Button x:Name="ModifyVirusButton" Content="Modify Virus" Margin="0,3" MinWidth="75" MinHeight="75" Height="127" Width="145"/>
+			<Button x:Name="PauseButton" Content="Unpause"  Margin="0,3" Width="145" Height="45"/>
+		</StackPanel>
     </Grid>
 </Window>
